@@ -72,7 +72,6 @@ export const tareas: Tarea[] = [
       'Si el servicio es de urgencia o nocturno, aplica un recargo del 30% al 50%.',
       'Usa tu recibo para recomendar el reemplazo de cableado viejo o centros de carga saturados para prevenir futuros cortos.'
     ]
-  }
   },
   // Carpintería
   {
