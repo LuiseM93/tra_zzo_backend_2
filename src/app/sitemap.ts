@@ -34,14 +34,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   const oficioRoutes: MetadataRoute.Sitemap = oficios.map((oficio) => ({
-    url: `${baseUrl}/cotizador-para-${oficio.slug}`,
+    url: `${baseUrl}/cotizador-para/${oficio.slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.9,
   }))
 
   const tareaRoutes: MetadataRoute.Sitemap = tareas.map((tarea) => ({
-    url: `${baseUrl}/como-cotizar-${tarea.slug}`,
+    url: `${baseUrl}/como-cotizar/${tarea.slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly',
     priority: 0.8,
