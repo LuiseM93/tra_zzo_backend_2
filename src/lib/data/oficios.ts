@@ -182,8 +182,8 @@ export const oficios: Oficio[] = [
     ]
   },
   {
-    id: 'albanil',
-    slug: 'albaniles',
+    id: 'albanil-construccion',
+    slug: 'albaniles-construccion',
     name: 'Albañilería y Construcción',
     title: 'Cotizador para Albañiles y Maestros de Obra',
     description: 'Calcula costos para muros, enjarres, colados, losas y cimentaciones de forma profesional.',
@@ -201,8 +201,8 @@ export const oficios: Oficio[] = [
     ]
   },
   {
-    id: 'herrero',
-    slug: 'herreros',
+    id: 'herrero-soldadura',
+    slug: 'herreros-soldadura',
     name: 'Herrería y Soldadura',
     title: 'Presupuestos y Recibos para Herreros',
     description: 'Cotiza puertas, protecciones, barandales, zaguanes y estructuras metálicas.',
