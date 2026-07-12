@@ -27,10 +27,16 @@ export default function ReceiptGenerator({ isPro }: { isPro: boolean }) {
 
   // Suppress hydration warning for date
   const [currentDate, setCurrentDate] = useState('')
+  const [toast, setToast] = useState<string | null>(null)
 
   useEffect(() => {
     setCurrentDate(new Date().toLocaleDateString('es-ES'))
   }, [])
+
+  const showToast = (msg: string) => {
+    setToast(msg)
+    setTimeout(() => setToast(null), 5000)
+  }
 
   const handleLogoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!isPro) return
@@ -89,10 +95,52 @@ export default function ReceiptGenerator({ isPro }: { isPro: boolean }) {
   }
 
   const handleWhatsApp = async () => {
-    await handleExportImage()
-    const message = `Hola ${clientName}, aquí tienes el resumen de tu recibo por un total de $${total.toFixed(2)}. Te adjunto la imagen del recibo a continuación.`
-    const url = `https://wa.me/?text=${encodeURIComponent(message)}`
-    window.open(url, '_blank')
+    const canvas = await generateCanvas()
+    if (!canvas) return
+
+    const shareText = 'Aquí tienes tu recibo generado con Trazzo'
+    const fileName = `recibo-${clientName || 'cliente'}.png`
+
+    // Convertir canvas a Blob
+    const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, 'image/png'))
+    if (!blob) return
+
+    const file = new File([blob], fileName, { type: 'image/png' })
+
+    // Móvil: usar Web Share API con archivo adjunto
+    if (
+      typeof navigator !== 'undefined' &&
+      navigator.canShare &&
+      navigator.canShare({ files: [file] })
+    ) {
+      try {
+        await navigator.share({
+          files: [file],
+          text: shareText,
+        })
+        return
+      } catch (err) {
+        // Usuario canceló — no hacer nada
+        if ((err as Error).name !== 'AbortError') {
+          console.error('Web Share error:', err)
+        }
+        return
+      }
+    }
+
+    // Fallback para PC / navegadores sin soporte:
+    // 1. Descargar la imagen automáticamente
+    const link = document.createElement('a')
+    link.download = fileName
+    link.href = canvas.toDataURL('image/png')
+    link.click()
+
+    // 2. Abrir WhatsApp con texto precargado
+    const waUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`
+    window.open(waUrl, '_blank')
+
+    // 3. Mostrar toast informativo
+    showToast('Imagen descargada. Se abrirá WhatsApp, solo adjunta la imagen desde tus descargas.')
   }
 
   return (
@@ -230,6 +278,16 @@ export default function ReceiptGenerator({ isPro }: { isPro: boolean }) {
                 </div>
             </div>
 
+            {/* Toast notification */}
+            {toast && (
+              <div
+                role="alert"
+                className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-on-background text-background font-body-sm text-body-sm px-5 py-3 rounded-xl shadow-lg max-w-xs text-center"
+              >
+                {toast}
+              </div>
+            )}
+
             {/* Action Buttons Area */}
             <div className="flex flex-col md:flex-row gap-4 flex-wrap bg-surface py-4 border-t border-outline-variant sticky bottom-0 z-40 lg:static">
                 <button 
@@ -336,7 +394,7 @@ export default function ReceiptGenerator({ isPro }: { isPro: boolean }) {
                 {/* Watermark (Exact free HTML) */}
                 {!isPro && (
                   <div className="mt-8 text-center">
-                      <span className="font-body-sm text-body-sm text-outline italic">Generado con TRAZZO</span>
+                      <span className="font-body-sm text-body-sm text-outline italic">Generado con trazzoapp.online</span>
                   </div>
                 )}
             </div>
