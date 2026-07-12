@@ -44,6 +44,7 @@ export async function POST(req: Request) {
         userId: user.id,
       },
       customer_email: user.email,
+      allow_promotion_codes: true,
     })
 
     return NextResponse.json({ url: session.url })

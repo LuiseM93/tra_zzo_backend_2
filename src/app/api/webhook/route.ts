@@ -26,16 +26,30 @@ export async function POST(req: Request) {
     const userId = session.metadata?.userId
 
     if (userId) {
+      console.log(`[Webhook] Updating user ${userId} to pro plan`)
       // Use service role key to bypass RLS for webhook updates
       const supabaseAdmin = createClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY! // Fallback to anon for now if admin missing
       )
 
-      await supabaseAdmin
+      if (!process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY === 'RELLENA_CON_TU_SERVICE_ROLE_KEY') {
+        console.warn('[Webhook] WARNING: SUPABASE_SERVICE_ROLE_KEY is not set or invalid. RLS might block this update.')
+      }
+
+      const { data, error } = await supabaseAdmin
         .from('profiles')
         .update({ plan: 'pro' })
         .eq('id', userId)
+        .select()
+
+      if (error) {
+        console.error('[Webhook] Supabase update error:', error)
+      } else {
+        console.log('[Webhook] Supabase update success:', data)
+      }
+    } else {
+      console.warn('[Webhook] No userId found in session metadata')
     }
   }
 
