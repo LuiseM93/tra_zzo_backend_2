@@ -51,7 +51,7 @@ export default async function TareaPage({ params }: { params: Promise<{ slug: st
             <Link href="/" className="font-headline-lg text-headline-lg text-primary tracking-tighter">TRAZZO RECIBO</Link>
             <div className="hidden md:flex items-center gap-gutter">
                 {oficio && (
-                  <Link href={`/cotizador-para-${oficio.slug}`} className="font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-primary transition-colors">
+                  <Link href={`/cotizador-para/${oficio.slug}`} className="font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-primary transition-colors">
                     IR AL COTIZADOR
                   </Link>
                 )}
@@ -66,7 +66,7 @@ export default async function TareaPage({ params }: { params: Promise<{ slug: st
         <main className="flex-grow w-full max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop py-margin-desktop flex flex-col gap-margin-desktop">
             <header className="flex flex-col gap-2 border-b border-outline-variant pb-8">
                 <div className="font-label-caps text-label-caps text-primary uppercase tracking-widest flex items-center gap-2">
-                  <Link href={`/cotizador-para-${oficio?.slug}`} className="hover:underline">
+                  <Link href={`/cotizador-para/${oficio?.slug}`} className="hover:underline">
                     {oficio?.name}
                   </Link>
                   <span>/</span>
@@ -110,7 +110,7 @@ export default async function TareaPage({ params }: { params: Promise<{ slug: st
             <section className="mt-8 text-center bg-primary-container text-on-primary-container p-8 rounded-xl">
               <h3 className="font-headline-lg-mobile text-headline-lg-mobile mb-4">¿Listo para enviar tu presupuesto?</h3>
               <p className="mb-6">Crea un recibo profesional y envíalo por WhatsApp a tu cliente en segundos.</p>
-              <Link href={`/cotizador-para-${oficio?.slug}`}>
+              <Link href={`/cotizador-para/${oficio?.slug}`}>
                 <button className="bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-widest h-14 px-8 rounded hover:opacity-90 transition-opacity">
                     IR AL COTIZADOR GRATIS
                 </button>
