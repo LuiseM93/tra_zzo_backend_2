@@ -2,7 +2,6 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { oficios } from '@/lib/data/oficios'
 import { tareas } from '@/lib/data/tareas'
-import ReceiptGenerator from '@/components/ReceiptGenerator'
 import Link from 'next/link'
 import ProUpsellSection from '@/components/ProUpsellSection'
 
@@ -112,8 +111,16 @@ export default async function TareaPage({ params }: { params: Promise<{ slug: st
             {/* Pro Upsell después del último tip */}
             <ProUpsellSection context="tarea" />
 
-            {/* Generador de Recibos directo en la página */}
-            <ReceiptGenerator isPro={false} />
+            {/* CTA: Hacer tu primer recibo */}
+            <section className="mt-8 bg-primary-container text-on-primary-container p-8 rounded-xl text-center">
+              <h3 className="font-headline-lg text-headline-lg mb-2">¿Listo para hacer tu primer recibo?</h3>
+              <p className="mb-6 opacity-90">Tarda 30 segundos. Sin registro. PDF listo para WhatsApp.</p>
+              <Link href={`/cotizador-para/${oficio?.slug}`}>
+                <button className="bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-widest h-14 px-8 rounded hover:opacity-90 transition-opacity">
+                  CREAR MI RECIBO GRATIS
+                </button>
+              </Link>
+            </section>
         </main>
 
         <footer className="bg-surface border-t border-outline-variant px-margin-mobile md:px-margin-desktop py-8 w-full mt-margin-desktop">
