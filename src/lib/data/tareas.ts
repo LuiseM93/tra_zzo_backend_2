@@ -1277,6 +1277,256 @@ export const tareas: Tarea[] = [
       'Equipo trazable CENAM OBLIGATORIO: Medidor kVp/mAs/tiempo (Radcal, Unfors, PTW, Fluke Biomedical) certificado <12 meses. Cámara ionización 6-100cc (Farmer, PTW, Exradin) + electrómetro trazable. Filtros Al 99.99% espesor conocido. Fantoma acrílico/agua. Certificados calibración CENAM (o laboratorio acreditado EMA/ILAC MRA) adjuntos en informe.',
       'Parámetros NOM-229-SSA1: 1) kVp: ±5% valor indicado (≤100kV) / ±4% (>100kV). 2) mAs: ±10% (≤10mAs) / ±5% (>10mAs). 3) Tiempo: ±5% (≤10ms) / ±2% (>10ms) / ±1 pulso (alta velocidad). 4) HVL: ≥ valor tabla según kVp (Al mm). 5) Dosis aire: consistente kVp/mAs. 6) Reproducibilidad: coef. variación <0.05 (5 mediciones). 7) Linealidad: dosis ∝ mAs (coef. determinación >0.99). 8) Colimación: luz vs radiación ±2% SID. 9) Distancia foco-piel: ≥30cm (fijo), ≥20cm (móvil). 10) Filtro inherente: ≥0.5mm Al eq (≤50kV), ≥1.5mm (50-70kV), ≥2.5mm (>70kV).',
       'Entregables: 1) Informe técnico (metodología, equipo patrón + cert CENAM, resultados, conformidad SI/NO, observaciones). 2) Constancia validación (firma ingeniero responsable, vigencia 12 meses). 3) Aviso COFEPRIS (formato único, 30 días hábiles post-validación). 4) Etiqueta validación equipo (próxima fecha). COTIZA: "Validación NOM-229 trazable CENAM + informe + constancia + aviso COFEPRIS: $8,000-$15,000/equipo. Descuento 3+ equipos mismo sitio: 15%. Urgencia <5 días: +50%.".'
-    ]
-  }
-]
+          ]
+        },
+
+        // ===== TAREAS ADICIONALES LOTE 3 - PARTE 2 (20 TAREAS) =====
+        // Yeso / Drywall / Tablaroca Comercial
+        {
+          id: 'tablaroca-plafones-acusticos',
+          slug: 'tablaroca-plafones-acusticos',
+          oficioId: 'yeso-drywall-comercial',
+          name: 'Plafones Acústicos Tablaroca (Placas Minerales, Fibra Vidrio, Vinílicas, Acceso Registro)',
+          title: 'Cómo Cotizar Plafón Acústico: Placas 60x60, Perfilería T24, Tramitas, Iluminación, HVAC',
+          description: 'Presupuesto por m²: placas acústicas (mineral, fibra vidrio, vinílico), perfilería T24/T15, tramitas registro, molduras, aislamiento lana mineral, luminarias LED, difusores HVAC, instalación completa.',
+          priceRange: '$400 - $650 MXN/m² según sistema y acabado',
+          estimatedTime: '20-30 m²/día por cuadrilla 2 personas',
+          tips: [
+            'Placa mineral estándar (NRC 0.55-0.65): $350-$450/m² instalada. Placa fibra vidrio (NRC 0.70-0.85, resistente humedad): $450-$550/m². Placa vinílica (lavable, hospitales/cocinas): $500-$650/m². Incluye: perfilería T24 principal/secundaria, colgadores, tramitas c/1.2m, moldura perimetral, cortes luminarias/difusores.',
+            'Aislamiento acústico sobre plafón: lana mineral 50mm (R-13) + barrera vapor: +$80-$120/m². Acceso registro: tramita 60x60 c/1.2m + tramitas individuales bajo equipos HVAC. Tramoteca (acceso mayor): perfilería reforzada + bisagras + pestillo + escalera acceso: +$2,000-$4,000 c/u.',
+            'Coordinación OBLIGATORIA con electricista/HVAC ANTES de cerrar: "Plano coordinación + puntos luminarias/difusores + cotización conjunta". Retiro plafón existente: +$50-$100/m². Mínimo: 40 m² o $12,000. Garantía: 1 año mano de obra, 10-30 años placas (fabricante).'
+          ]
+        },
+        {
+          id: 'tablaroca-muros-fonoabsorbentes',
+          slug: 'tablaroca-muros-fonoabsorbentes',
+          oficioId: 'yeso-drywall-comercial',
+          name: 'Muros Fonoabsorbentes Tablaroca (Estudios, Salas Cine, Oficinas, Restaurantes)',
+          title: 'Cuánto Cobrar por Muro Acústico Tablaroca: STC 45-60, Lana Mineral, Doble Capa, Sellado',
+          description: 'Presupuesto por m²: muro divisor doble tablaroca 5/8" tipo X + lana mineral 75-100mm + canal resiliente + sellador acústico + cajas eléctricas con masilla + zócalo flotante. STC certificado.',
+          priceRange: '$550 - $900 MXN/m² según STC requerido',
+          estimatedTime: '10-15 m²/día por cuadrilla 2 personas',
+          tips: [
+            'STC 45-50 (oficinas, consultorios): Doble tablaroca 5/8" c/lado + lana mineral 75mm + canal resiliente un lado: $550-$700/m². STC 55-60 (estudios, salas cine, máquinas): Triple tablaroca + lana 100mm + canal resiliente ambos lados + lámina viscoelástica: $750-$900/m².',
+            'Detalles CRÍTICOS: Sellador acústico (no silicona) en TODOS encuentros (piso, techo, muro adyacente, cajas eléctricas, pasatubos). Cajas eléctricas: cajas tablaroca + masilla acústica + cinta + sellado perimetral. Zócalo flotante (perfil U + neopreno 10mm): +$80-$150/ml. Puertas: sello automático fondo + burlete perimetral + umbral acústico: $3,000-$6,000/puerta.',
+            'Prueba STC campo (opcional, certifica entrega): medición ruido aéreo + impacto + reporte: $8,000-$15,000/muro. Mínimo obra: 20 m² o $15,000. Entrega: "Muro listo pintar + croquis instalaciones + certificado STC si aplica + fotos sellados".'
+          ]
+        },
+        // Especialistas en Pisos Epóxicos / Poliuretano / Concreto Pulido
+        {
+          id: 'concreto-pulido-mecanizado-comercial',
+          slug: 'concreto-pulido-mecanizado-comercial',
+          oficioId: 'pisos-epoxicos-industriales',
+          name: 'Concreto Pulido Mecanizado Comercial / Industrial (Diamantado, Densificador, Sellado, Brillo Espejo)',
+          title: 'Cómo Cotizar Concreto Pulido: Grano 50-3000, Densificador Litio/Sodio, Guard, Brillo Alto Tráfico',
+          description: 'Presupuesto por m²: diamantado escalonado (grano 50-3000), densificador litio/sodio/potasio, sellado guard (acrílico/poliuretano), pulido final brillo espejo. Niveles brillo: mate, satinado, alto brillo, espejo.',
+          priceRange: '$180 - $350 MXN/m² según nivel brillo y dureza concreto',
+          estimatedTime: '500-1,000 m²/día equipo 3-4 personas',
+          tips: [
+            'Nivel 1 (Mate/Satinado, grano 400): $180-$250/m². Nivel 2 (Alto brillo, grano 800-1500): $220-$300/m². Nivel 3 (Espejo, grano 3000): $280-$350/m². Incluye: reparación grietas/juntas (epoxi + arena), diamantado escalonado 6-8 pasos, densificador 2-3 aplicaciones, guard 2 manos, pulido final.',
+            'Concreto NUEVO (curado 28 días): mejor resultado, menos reparación. Concreto EXISTENTE: evaluar dureza (Mohs), porosidad, manchas, recubrimientos previos. Remoción recubrimiento anterior (epoxi, pintura, sellador): +$80-$150/m². Manchas aceite/químicos: tratamiento previo +$50-$100/m².',
+            'Mantenimiento: Re-aplicación guard cada 1-3 años según tráfico ($30-$60/m²). Limpieza: pH neutro, NO ácidos/alcalinos. Garantía: 5-10 años (desprendimiento, polvo, brillo) si mantenimiento correcto. Mínimo: 300 m² o $60,000. Entrega: "Informe dureza Mohs + fotos pasos + medidor brillo (gloss meter) + protocolo mantenimiento".'
+          ]
+        },
+        {
+          id: 'piso-epoxico-decorativo-metalizado',
+          slug: 'piso-epoxico-decorativo-metalizado',
+          oficioId: 'pisos-epoxicos-industriales',
+          name: 'Piso Epóxico Decorativo: Metalizado, Flake, Cuarzo Color, 3D, Logos Personalizados',
+          title: 'Cuánto Cobrar por Piso Epóxico Decorativo m²: Metalizado, Flake, Cuarzo, Diseños, Logos',
+          description: 'Presupuesto por m²: base epóxica + pigmentos metalizados (perla, cobre, oro, plata) + flake (virutas vinílicas) + cuarzo color + diseños artísticos + logos corporativos + sellado UV. Showrooms, oficinas, retail, residenciales premium.',
+          priceRange: '$800 - $2,000 MXN/m² según complejidad diseño',
+          estimatedTime: '50-150 m²/día (más lento por detalle artístico)',
+          tips: [
+            'Metalizado (pigmento perla/cobre/oro/plata 3-5%): $800-$1,200/m². Flake (virutas 1-3mm, 10-20% superficie, 3-5 colores): $900-$1,400/m². Cuarzo color (mezcla 3-5 tonos, antideslizante): $1,000-$1,500/m². Diseño artístico (degradados, vetas mármol, geodas): $1,500-$2,500/m². Logo corporativo (plantilla + aplicación manual): +$3,000-$8,000/logo.',
+            'Base: Epóxico 100% sólidos 2-3mm + imprimación. Capa decorativa + sellado poliuretano alifático UV 2 manos (obligatorio exteriores/zona UV). Antideslizante: sílice/óxido aluminio en sellado final. Tiempo cura: tráfico ligero 24h, pesado 72h.',
+            'Mínimo: 50 m² o $60,000. Requiere: visita técnica + muestra física 30x30cm (aprobación cliente) + contrato diseño. Garantía: 3-5 años (color, desgaste, amarillamiento). Entrega: "Muestra aprobada firmada + hoja datos sistema + certificado aplicación + protocolo limpieza".'
+          ]
+        },
+        // Instaladores de Cercas Perimetrales / Malla Ciclónica / Panel / Eléctricas
+        {
+          id: 'panel-3d-vallas-esteticas',
+          slug: 'panel-3d-vallas-esteticas',
+          oficioId: 'cercas-perimetrales-malla',
+          name: 'Vallas Panel 3D / 2D Estéticas (Residenciales, Comerciales, Parques, Escuelas)',
+          title: 'Cómo Cotizar Valla Panel 3D: Malla Electrosoldada, Recubrimiento Polvo, Postes PTR, Portones',
+          description: 'Presupuesto por ml: panel 3D/2D (malla electrosoldada 50x200mm, varilla 4-5mm, recubrimiento polvo poliéster), postes PTR 60x60x2mm c/2.5m, tapas poste, grapas seguridad, portones a juego, cimentación.',
+          priceRange: '$550 - $900 MXN/ml según altura y acabado',
+          estimatedTime: '50-80 ml/día equipo 3 personas',
+          tips: [
+            'Panel 3D (rigidez + estética, doblez en "V" cada 50mm): $550-$750/ml (altura 1.5-2m). Panel 2D (plano, económico): $450-$600/ml. Postes PTR 60x60x2mm galvanizado + pintura polvo: incluido. Tapas poste piramidales/planar: incluidas. Grapas seguridad anti-robo: incluidas. Cimentación zapata 30x30x50cm c/2.5m: incluida.',
+            'Colores estándar (RAL 6005 verde, 7016 antracita, 9005 negro, 9010 blanco): sin cargo. Colores RAL especial: +15-20% + 2 semanas entrega. Portón peatonal 1m (panel + marco + bisagras + chapa): $5,000-$8,000. Portón vehicular corredizo 3-4m (panel + motor + cremallera + fotocélula): $20,000-$38,000. Portón batiente 2 hojas: $25,000-$45,000.',
+            'Permisos: >2.5m altura o zona federal = licencia municipal + acta vecino. Cotiza PARTIDA: "Trámite licencia + acta + topógrafo: $5,000-$20,000". Mínimo: 30 ml o $18,000. Garantía: 10 años estructura (fabricante), 5 años recubrimiento polvo. Entrega: "Croquis perímetro + certificado recubrimiento + fotos cimentación + llaves portones".'
+          ]
+        },
+        {
+          id: 'cerca-electrica-perimetral-seguridad',
+          slug: 'cerca-electrica-perimetral-seguridad',
+          oficioId: 'cercas-perimetrales-malla',
+          name: 'Cerca Eléctrica Perimetral Seguridad Residencial/Industrial (Energizador, Hilos, Sirena, Monitoreo 24/7)',
+          title: 'Cuánto Cuesta Cerca Eléctrica Antihuacho: Energizador 5-15J, 5-8 Hilos, Sirena, App, Monitoreo',
+          description: 'Presupuesto por ml + equipo: energizador 5-15 Joules (red/solar/híbrido), hilo 2.5mm 5-8 hilos c/15-20cm, aisladores UV, posta esquina, varilla tierra, sirena estroboscópica, teclado/botón pánico, app monitoreo, certificado PC.',
+          priceRange: '$300 - $450 MXN/ml + $8,000 - $25,000 equipo completo',
+          estimatedTime: '80-150 ml/día equipo 2 personas',
+          tips: [
+            'Residencial (antihuacho): 6-8 hilos c/15-20cm, energizador 8-15J (alto voltaje ~8-10kV, baja energía <5J), aisladores plástico UV, sirena 120dB + estroboscópica, teclado código + botón pánico, app móvil (estado, alertas, encendido/apagado remoto): $350-$450/ml + $12,000-$25,000 equipo. Industrial (perimetral fábrica/bodega): 4-5 hilos c/30cm, energizador 5-10J, sirena potente, monitoreo 24/7 central receptora: $300-$400/ml + $15,000-$30,000 + $500-$1,500/mes monitoreo.',
+            'Puesta a tierra (VIDA O MUERTE): 3 varillas 3/4"x3m cobreado triángulo 3m + cable 16mm² + caja registro + medición <10 ohmios: $3,000-$6,000. Suelo seco/rocoso: pozo profundo 10-20m + bentonita + varilla 15m: $15,000-$30,000. SIN TIERRA <10 OHM = CERCA INÚTIL. Incluye: "Certificado ohmios + fotos medición + croquis tierra + garantía 2 años energizador".',
+            'Normativa: NOM-001-SEDE + PC local (señalética "PELIGRO ALTA TENSIÓN" c/10m, altura ≥1.8m, acceso restringido). Monitoreo 24/7: central receptora certificado + protocolo respuesta + llaves guardadas. Cotiza PARTIDA: "Proyecto ejecutivo + trámite PC + certificado tierra + capacitación + contrato monitoreo: $10,000-$30,000".'
+          ]
+        },
+        // Técnicos en Mantenimiento de Elevadores / Montacargas / Plataformas
+        {
+          id: 'mantenimiento-montacargas-plataformas',
+          slug: 'mantenimiento-montacargas-plataformas',
+          oficioId: 'mantenimiento-elevadores',
+          name: 'Mantenimiento Montacargas y Plataformas Elevadoras (Tijera, Articuladas, Mastil, Carga/Acceso)',
+          title: 'Checklist y Precio Mantenimiento Montacargas/Plataformas: Hidráulico, Eléctrico, Estructural, Seguridad',
+          description: 'Visita mensual/trimestral: sistema hidráulico (bombas, cilindros, válvulas, mangueras, aceite), eléctrico (baterías, cargador, motores, PLC), estructural (tijera, mastil, soldaduras, pasadores), seguridad (finales carrera, limitadores, barandales, cadena, sensor sobrecarga).',
+          priceRange: '$1,500 - $4,000 MXN/mes por equipo según tipo y capacidad',
+          estimatedTime: '1-3 horas por visita',
+          tips: [
+            'Montacargas tijera (carga 500-3000kg): $1,500-$2,500/mes. Plataforma articulada/mástil (altura 10-40m): $2,500-$4,000/mes. Incluye: 12 visitas/año + emergencia 24h (mano de obra) + refacciones menores (filtros, aceite 20L/año, contactos, fusibles) + reporte digital + bitácora NOM-006-STPS. NO incluye: cilindros, bombas, baterías, neumáticos, tableros, estructural mayor.',
+            'Checklist crítico: 1) Hidráulico: nivel/calidad aceite, fugas cilindros/mangueras, presión trabajo, válvulas retención/bajada controlada. 2) Eléctrico: baterías (voltaje, electrolito, terminales), cargador (curva carga), motores (amperaje, temp), PLC (errores, logs). 3) Estructural: soldaduras (grietas, corrosión), pasadores/bujes (juego, lubricación), tijera/mástil (alineación, desgaste). 4) Seguridad: finales carrera, limitadores carga/altura, barandales/cadena, sensor sobrecarga, parada emergencia, plataforma nivelada.',
+            'Contrato 3-5 años: 10-15% descuento. Cliente flotas 5+ equipos: tarifa volumen $1,200-$3,000/equipo. Entrega: "Reporte mensual PDF + bitácora física + alertas WhatsApp anomalías + certificado anual NOM-006-STPS + planificación recambios 12 meses".'
+          ]
+        },
+        {
+          id: 'modernizacion-elevador-accesibilidad',
+          slug: 'modernizacion-elevador-accesibilidad',
+          oficioId: 'mantenimiento-elevadores',
+          name: 'Modernización Elevador Accesibilidad (Cabina Ampliada, Botoneras Braille, Anunciador Voz, Manijas, Espejos)',
+          title: 'Cómo Cotizar Modernización Accesibilidad NOM-008-SEDE: Cabina Silla Ruedas, Señalización, Comunicación',
+          description: 'Proyecto llave en mano para cumplimiento NOM-008-SEDE-2017 (accesibilidad): ampliación cabina (mín 110x140cm), botoneras braille + relieve 90-120cm, anunciador voz pisos/dirección, manijas 90cm, espejo fondo, señalética tactile, intercomunicador video, emergencia 2 vías.',
+          priceRange: '$200,000 - $500,000 MXN por elevador según alcance',
+          estimatedTime: '5-10 días fuera de servicio',
+          tips: [
+            'Alcance mínimo NOM-008: Cabina ≥110x140cm (silla ruedas giro 360°) + botoneras braille/relieve 90-120cm + anunciador voz + manija 90cm + espejo fondo + señalética táctil piso + intercomunicador 2 vías video/audio + luz emergencia + señalización "NO USE EN INCENDIO". Costo: $200,000-$350,000.',
+            'Alcance premium: Cabina ampliada (requiere ensanche hueco + nuevo bastidor + guías) + botoneras destino (destination dispatch) + anunciador multidioma + intercomunicador video IP + supervisión remota IoT + acabados acero inox/vidrio/espejo. Costo: $400,000-$700,000. Tiempo: 10-20 días fuera servicio.',
+            'Incluye: Proyecto ejecutivo + fabricación/importación (8-16 sem) + instalación (5-20 días) + pruebas (dimensiones, fuerzas, tiempos, comunicación, emergencia) + certificación NOM-008 + NOM-001-SEDE + capacitación usuarios + manuales + garantía 2-5 años. Financiamiento: 24-60 meses. Cotiza PARTIDA: "Estudio accesibilidad + proyecto ejecutivo: $25,000-$50,000 (se abona)".'
+          ]
+        },
+        // Instaladores de Sistemas Contra Incendio / Rociadores / Detectores / Extintores
+        {
+          id: 'deteccion-incendio-direccionable-edificio',
+          slug: 'deteccion-incendio-direccionable-edificio',
+          oficioId: 'sistemas-contra-incendio',
+          name: 'Detección Incendio Direccionable Edificio Oficinas/Comercial (Central, Detectores, Módulos, Sirenas, Estrobos)',
+          title: 'Cuánto Cuesta Sistema Detección Direccionable: Central, Detectores Humo/Térmicos, Módulos Entrada/Salida, Cableado, Programación',
+          description: 'Presupuesto por punto: central direccionable (1-8 lazos, 125-250 dispositivos/lazo), detectores fotoeléctricos/iónicos/térmicos/multicriterio, bases direccionables, módulos entrada (pulsadores) / salida (sirenas, estrobos, contactos), cableado FPLR/FPLP, programación, pruebas, certificación.',
+          priceRange: '$1,200 - $2,500 MXN/punto instalado (incluye detector + base + cableado + programación)',
+          estimatedTime: '20-40 puntos/día equipo 2-3 personas',
+          tips: [
+            'Central 1 lazo (≤125 dispositivos): $25,000-$45,000. 2-4 lazos: $45,000-$80,000. 8 lazos (≤1000 dispositivos): $100,000-$200,000. Incluye: gabinete, fuente 24V 5-10A, baterías respaldo 24h, display LCD, protocolo comunicación (Modbus/BACnet/TCP-IP). Marcas: Notifier, Edwards, Siemens, Honeywell, GST, nacional.',
+            'Detectores: Fotoeléctrico humo (oficinas, pasillos): $1,200-$1,800/punto. Térmico fijo/rate-of-rise (cocinas, cuartos eléctricos): $1,300-$1,900. Multicriterio (humo+térmico+CO): $1,800-$2,500. Base direccionable + cableado FPLR 18AWG + programación: incluido. Módulo salida (sirena/estrobo/contacto): $1,500-$2,500 c/u. Pulsador manual (rompible/rearmable): $1,500-$2,200.',
+            'Pruebas: Sensibilidad humo (cámara humo UL 268), térmico (baño aceite), comunicación todos dispositivos, secuencia alarmas, supervision cableado (corto/abierto/tierra), baterías 24h carga + 5min alarma. Entrega: "Planos as-built + programación central (backup USB) + certificados detectores + manual operación + capacitación 4h brigada + bitácora NFPA 72". Vigencia: 1 año (revisión semestral NFPA 72).'
+          ]
+        },
+        {
+          id: 'sistema-bombeo-incendio-jockey-diesel',
+          slug: 'sistema-bombeo-incendio-jockey-diesel',
+          oficioId: 'sistemas-contra-incendio',
+          name: 'Sistema Bombeo Incendio: Bomba Principal Eléctrica + Jockey + Diésel (NFPA 20, Certificación PC)',
+          title: 'Cómo Cotizar Bombeo Contra Incendio: Curva Bomba, Tablero Arranque, Transferencia Auto, Tanque, Pruebas',
+          description: 'Llave en mano: bomba horizontal split case (eléctrica 50-500 HP) + bomba jockey (3-10 HP) + bomba diésel (opcional NFPA 20) + tablero control (arranque estrella-triángulo/VFD + transferencia automática diésel + controlador presión) + tanque succión/descarga + instrumentación + cimentación + pruebas curva + certificación PC.',
+          priceRange: '$350,000 - $2,500,000+ MXN según caudal (LPM) y presión (kPa)',
+          estimatedTime: '4-8 semanas (fabricación 3-6 sem + instalación 1-2 sem)',
+          tips: [
+            'Dimensionamiento NFPA 20: Caudal = demanda rociadores + mangueras (mín 500 LPM). Presión = pérdida carga + presión residual mínima (100-150 psi en techo). Bomba principal: split case 1-4 etapas, 1750/3500 RPM, sello mecánico/empaquetadura. Jockey: multietapa 3-10 HP, mantiene presión 10-15 psi > bomba principal. Diésel: motor NFPA 20 (arranque 12V/24V, radiador, tanque combustible 8h, gobernador velocidad).',
+            'Tablero: Arranque estrella-triángulo (bomba ≤75 HP) / VFD (>75 HP) + transferencia automática (eléctrica → diésel en <10s fallo energía) + controlador presión (transductor 4-20mA, display, alarmas) + protecciones (sobrecarga, bajo voltaje, fase invertida, falla bomba). Telemetría: nivel tanque, presión, estado bombas, alarmas → app/web + central monitoreo.',
+            'Pruebas NFPA 20: Curva bomba (0%, 50%, 100%, 150% caudal) + prueba arranque diésel (3 arranques consecutivos 5min c/u) + prueba transferencia automática + prueba 2h operación continua + vibración/ruido/temperatura. Entrega: "Curva bomba certificada + actas pruebas + manuales + certificado PC + manual operación + capacitación 4h operadores + contrato mantenimiento trimestral".'
+          ]
+        },
+        // Especialistas en Tratamiento de Aguas Residuales / Biodigestores / PTAR
+        {
+          id: 'ptar-activada-lodos-mbr',
+          slug: 'ptar-activada-lodos-mbr',
+          oficioId: 'tratamiento-aguas-residuales',
+          name: 'PTAR Lodos Activados / MBR (Reactores, Aireación, Membranas, Desinfección, Lodos, Automatización)',
+          title: 'Cuánto Cuesta PTAR Lodos Activados/MBR: Diseño, Obra Civil, Electromecánica, Membranas, SCADA, O&M',
+          description: 'Llave en mano: pretratamiento (reja, desarenador, trampa grasa), reactores aireación (lodos activados convencional / MBR membranas sumergidas), sopladores/difusores, decantadores secundarios, desinfección (UV/hipoclorito/dióxido cloro), espesamiento/deshidratación lodos (centrífuga/banda/lechos), tablero PLC+SCADA+telemetría, caseta, puesta marcha, capacitación, O&M.',
+          priceRange: '$5M - $50M+ MXN CAPEX según caudal (50-5000 m³/d) + $100k-$500k/mes OPEX',
+          estimatedTime: '6-18 meses (ingeniería 2-4m, fabricación 3-6m, obra civil 3-6m, electromecánica 2-4m, puesta marcha 1-3m)',
+          tips: [
+            'Lodos activados convencional (caudal >500 m³/d): $5M-$20M. MBR membranas (caudal 50-500 m³/d, espacio limitado, efluente alta calidad reuso): $8M-$50M. MBR ventajas: efluente <5mg/L DBO/SS, <2 NTU, <10 UFC/100mL coliformes, 50% menos huella, automatización total. Desventaja: CAPEX +30-50%, OPEX membranas (limpieza química, reemplazo 7-10 años $500k-$2M).',
+            'CAPEX desglose: Ingeniería/permisos 8-12%. Obra civil (reactores concreto, decantadores, casetas, zanjas) 35-45%. Electromecánica (sopladores, bombas, membranas, UV, tableros, tubería, válvulas) 30-40%. Automatización/SCADA 5-8%. Puesta marcha/capacitación 3-5%. Contingencia 10%.',
+            'OPEX mensual: Energía (sopladores 60-70%, bombas 15-20%, UV 5-10%) $50k-$300k. Químicos (coagulante, polímero, hipoclorito, citrico limpieza membranas) $10k-$50k. Operadores certificados 3 turnos $30k-$100k. Mantenimiento (limpieza membranas CIP, calibración, lubricación) $20k-$80k. Lodos (centrífuga + disposición) $20k-$100k. TOTAL OPEX: $130k-$630k/mes. Contrato O&M 5-10 años: 8-12% CAPEX/año.'
+          ]
+        },
+        {
+          id: 'humedales-construidos-tratamiento-natural',
+          slug: 'humedales-construidos-tratamiento-natural',
+          oficioId: 'tratamiento-aguas-residuales',
+          name: 'Humedales Construidos Tratamiento Natural (Superficie Libre, Flujo Subsuperficial, Vertical, Híbridos)',
+          title: 'Cómo Cotizar Humedal Construido: Diseño Hidráulico, Plantas, Sustrato, Impermeabilización, Distribución, Mantenimiento',
+          description: 'Presupuesto por m²/habitante: impermeabilización (geomembrana HDPE 1.5-2mm / arcilla compactada), sustrato (grava 10-20mm / zeolita / arena), plantas (carrizo, lirio, totora, junco), distribución (superficie libre / flujo subsuperficial horizontal/vertical), pretratamiento, desinfección, monitoreo, cosecha biomasa.',
+          priceRange: '$8,000 - $25,000 MXN/habitante equivalente (HE) | $150 - $400 MXN/m² construido',
+          estimatedTime: '3-6 meses (ingeniería 1-2m, obra civil 2-4m, plantación 1-2m, maduración 3-6m)',
+          tips: [
+            'Superficie libre (FS, agua visible, tipo laguna): $150-$250/m², mayor área (3-5 m²/HE), menor costo, riesgo vectores/olores, evapotranspiración alta. Flujo subsuperficial horizontal (FSS-H, agua bajo grava): $200-$350/m², área 1.5-3 m²/HE, sin olores/vectores, mejor remoción patógenos, operación simple. Flujo subsuperficial vertical (FSS-V, intermitente): $250-$400/m², área 1-2 m²/HE, mejor nitrificación, requiere dosificación controlada. Híbrido (FSS-V + FSS-H): $300-$450/m², mejor remoción total N/P.',
+            'Plantas: Carrizo (Phragmites australis) - rey humedales, raíces 1-2m, O2 radicular. Lirio acuático (Eichhornia) - crecimiento rápido, remoción N/P alta, requiere control invasivo. Totora (Typha) - resistente, buena estructura raíz. Junco (Juncus) - tolerante salinidad. Densidad plantación: 4-6 plantas/m². Cosecha biomasa anual: 10-20 ton/ha (compost/biogás/forraje).',
+            'Permisos: CONAGUA título descarga + SEMARNAT MIA/ETJ + Estatal/Municipal. COTIZA PARTIDA: "Gestión permisos + estudio hidrológico + modelo hidráulico: $100k-$300k". Mantenimiento: poda/cosecha anual, limpieza distribución, monitoreo DBO/DQO/N/P/Patógenos mensual, control vectores. Vida útil: 20-50 años (geomembrana 20-30 años, sustrato indefinido con lavado).'
+          ]
+        },
+        // Instaladores de Gas Medicinal / Oxígeno / Vacío / Aire Comprimido Hospitalario
+        {
+          id: 'aire-comprimido-medicinal-hospital',
+          slug: 'aire-comprimido-medicinal-hospital',
+          oficioId: 'gases-medicinales-hospitalarios',
+          name: 'Planta Aire Comprimido Medicinal Hospitalaria (Compresores, Secado, Filtración, CO<5ppm, Distribución)',
+          title: 'Cómo Cotizar Planta Aire Medicinal: Compresores Tornillo/Scroll, Secador Adsorción, Filtros Coalescentes, Carbón Activado, Validación',
+          description: 'Llave en mano: compresores tornillo/scroll (redundancia N+1), secador adsorción (punto rocío <-40°C), filtros coalescentes (0.01μm, 99.9999%), carbón activado (aceites <0.1mg/m³, CO <5ppm, CO2 <500ppm), depósito 500-5000L, válvulas, instrumentación, tubería cobre K/L, certificación NFPA 99 / ISO 7396 / NOM-002-SSA3.',
+          priceRange: '$800,000 - $5,000,000 MXN según caudal (LPM) y redundancia',
+          estimatedTime: '8-16 semanas (fabricación 4-8 sem + instalación 4-8 sem)',
+          tips: [
+            'Dimensionamiento: Caudal pico (LPM) x 1.25 = compresor. Redundancia N+1 (1 opera, 1 reserva). Compresor scroll (silencioso, <50 HP): $150k-$400k c/u. Tornillo (>50 HP, industrial): $300k-$800k c/u. Secador adsorción (gemelo, regeneración calor/despresurización): $200k-$600k. Filtros (5 etapas: 5μm, 1μm, 0.01μm, carbón, catalítico CO): $100k-$300k. Depósito 1000-5000L: $80k-$250k. Tablero + instrumentación + telemetría: $150k-$400k.',
+            'Calidad aire NFPA 99 / ISO 8573-1 Clase 1.2.1: Partículas <0.1mg/m³ (0.01μm), Agua punto rocío <-40°C, Aceite <0.1mg/m³. Adicional médico: CO <5ppm (catalizador paladio), CO2 <500ppm, NOx <2ppm, SO2 <1ppm. Pruebas: analizador continuo CO/CO2/O2/rocío/partículas/aceite + certificación laboratorio acreditado.',
+            'Validación PARTIDA: "Certificación NFPA 99 + ISO 7396 + NOM-002-SSA3: $80,000-$200,000". Incluye: particulas, humedad, aceites, CO, CO2, NOx, SO2, presión/caudal c/punto, alarmas. Mantenimiento: cambio filtros 6-12m ($20k-$50k), regeneración secador, análisis aceite compresor, calibración analizadores. Contrato O&M 5 años: 10-15% CAPEX/año.'
+          ]
+        },
+        {
+          id: 'vacio-medicinal-planta-hospital',
+          slug: 'vacio-medicinal-planta-hospital',
+          oficioId: 'gases-medicinales-hospitalarios',
+          name: 'Planta Vacío Medicinal Hospitalaria (Bombas Lobular/Garra/Líquido Anillo, Separadores, Silenciadores, Red)',
+          title: 'Cuánto Cuesta Planta Vacío Medicinal: Bombas, Separadores Ciclónicos, Silenciadores, Válvulas, Tubería, Validación',
+          description: 'Llave en mano: bombas vacío lobular/garra/líquido anillo (redundancia N+1, 50-500 m³/h), separadores ciclónicos (líquidos/sólidos), silenciadores (≤65 dB), válvulas retención/aislamiento/vacío, depósito vacío 500-5000L, tubería cobre K/L/acero inox, tablero control (VFD, sequencial, alarmas), certificación NFPA 99 / NOM-002-SSA3.',
+          priceRange: '$500,000 - $3,000,000 MXN según caudal (m³/h) y redundancia',
+          estimatedTime: '6-12 semanas (fabricación 3-6 sem + instalación 3-6 sem)',
+          tips: [
+            'Dimensionamiento: Caudal pico (m³/h) x 1.25 = bomba. Redundancia N+1. Bomba lobular (seco, 50-200 m³/h): $120k-$350k c/u. Garra (seco, 100-500 m³/h): $200k-$500k c/u. Líquido anillo (húmedo, 50-300 m³/h, tolera líquidos): $100k-$300k c/u. Separador ciclónico (entrada/salida tangencial, eficiencia 99% >10μm): $30k-$80k c/u. Silenciador (reactivo/absortivo, ≤65 dB): $20k-$60k c/u. Depósito 1000-5000L: $80k-$250k.',
+            'Tubería: Cobre tipo K/L (≤2") / Acero inox 304/316 Schedule 10/40 (>2"). Soldadura: plata 5% (cobre) / TIG (inox). Pendiente 1-2% hacia separadores/equipo. Válvulas: retención (evita retorno), aislamiento (mantenimiento), alivio vacío (protege bomba). Instrumentación: vacuómetro digital, presostato alarma vacío bajo, transmisor 4-20mA central.',
+            'Validación NFPA 99: Vacío ≥300 mmHg (40 kPa) en punto más desfavorable. Caudal ≥ demanda simultánea (quirófanos + UCI + urgencias). Ruido ≤65 dB sala máquinas. Pruebas: hermeticidad (burbuja/jabón), caudal/cada punto, alarma vacío bajo, sequencial bombas. PARTIDA: "Validación NFPA 99 + NOM-002-SSA3: $50,000-$150,000".'
+          ]
+        },
+        // Técnicos en Mantenimiento de Equipo Médico / Imagenología / Laboratorio
+        {
+          id: 'mantenimiento-resonancia-magnetica-1.5t-3t',
+          slug: 'mantenimiento-resonancia-magnetica-1.5t-3t',
+          oficioId: 'mantenimiento-equipo-medico',
+          name: 'Mantenimiento Preventivo Mensual Resonancia Magnética 1.5T/3T (Helio, Criogénico, Gradientes, RF, Bobinas, Mesa, QA)',
+          title: 'Checklist y Precio Mantenimiento RM 1.5T/3T: Helio, Compresor Frío, Gradientes, Amplificadores RF, Bobinas, Phantom ACR',
+          description: 'Visita mensual (6-8h): nivel/presión helio (cámara + compresor frío), gradientes (amplificadores, agua enfriamiento, calibración linealidad), RF (amplificadores, atenuadores, bobinas cuerpo/cabeza/superficie), mesa (movimiento, láser, índice), QA mensual (phantom ACR: resolución, SNR, uniformidad, ghosting, geometría), reporte digital + tendencias + alertas predictivas.',
+          priceRange: '$18,000 - $35,000 MXN/mes por equipo',
+          estimatedTime: '6-8 horas por visita mensual',
+          tips: [
+            'Incluye: 12 visitas/año + correctiva prioritaria (<4h hábil, <8h festivo) + refacciones menores (filtros agua, contactos, fusibles, helio 1000L/año) + QA mensual phantom ACR (resolución, SNR, uniformidad, ghosting, geometría, fat suppression) + reporte digital con tendencias (presión helio, temp criogénico, agua gradientes, SNR) + alertas predictivas. NO incluye: recarga helio ($150k-$300k/1000L), compresor frío ($800k-$2M), gradientes/amplificadores RF ($500k-$2M), bobinas ($180k-$600k), mesa.',
+            'QA Mensual ACR Phantom (RS-1/RS-2/MR-1): 1) Resolución espacial (líneas/mm). 2) SNR (señal/ruido ROI). 3) Uniformidad (variación %). 4) Ghosting (artifacts movimiento/fase). 5) Geometría (distorsión <2mm). 6) Fat suppression (eficiencia >90%). 7) Centro frecuencia (precisión ±0.01%). Límites ACR: SNR ≥20:1, Uniformidad ≥90%, Geometría ≤2mm, Ghosting ≤2.5%.',
+            'Helio: Vida criogénico 3-5 años, pérdida normal 1-2%/mes. Alarma nivel bajo → recarga URGENTE (quenching riesgo $2M+ daño imán). Compresor frío (coldhead): ciclo 3-5 años ($150k-$300k reemplazo). Gradientes: agua enfriamiento (conductividad <5μS/cm, temp 20-25°C). Contrato 3-5 años: 10-15% descuento. ENTREGA: "Dashboard web (helio, criogénico, gradientes, RF, QA trends) + alertas WhatsApp/email + reporte anual vida útil + plan recambios 24m".'
+          ]
+        },
+        {
+          id: 'calibracion-dosimetria-radioterapia-oncologia',
+          slug: 'calibracion-dosimetria-radioterapia-oncologia',
+          oficioId: 'mantenimiento-equipo-medico',
+          name: 'Calibración Dosimetría Radioterapia (Acelerador Lineal, Braquiterapia, TPS, Phantom, Trazabilidad CENAM/IAEA)',
+          title: 'Cómo Cotizar Calibración Radioterapia: Referencia Absoluta, Haz Referencia, Output Factors, IMRT/VMAT QA, Trazabilidad',
+          description: 'Servicio por acelerador: calibración referencia absoluta (cámara Farmer 0.6cc trazable CENAM/IAEA), haz referencia 10x10cm 100cm SSD, output factors (conos, MLC, wedges), linealidad dosis/rate, IMRT/VMAT QA (phantom Delta4/Octavius/MapCheck), TPS commissioning, constancia validación + aviso COFEPRIS. Vigencia 12 meses (referencia) / 6 meses (IMRT).',
+          priceRange: '$25,000 - $60,000 MXN por acelerador (referencia) | $15,000 - $30,000 (IMRT/VMAT QA semestral)',
+          estimatedTime: '4-8 horas referencia | 2-4 horas IMRT QA',
+          tips: [
+            'Equipo PATRÓN trazable CENAM/IAEA OBLIGATORIO: Cámara Farmer 0.6cc (PTW 30013, Exradin A19) + electrómetro (PTW UNIDOS, Standard Imaging Max4000) certificado <12 meses. Phantom agua 30x30x30cm. Phantom IMRT (Delta4, ScandiDos Delta4 Discover, IBA MatriXX, Sun Nuclear MapCheck, ArcCHECK). Certificados calibración CENAM/IAEA adjuntos.',
+            'Parámetros referencia (IAEA TRS-398 / AAPM TG-51): 1) kQ (factor calidad haz) ±0.5%. 2) Dosis referencia 10x10cm 100cm SSD: ±1%. 3) Linealidad dosis (MU): ±1% (10-400 MU). 4) Linealidad dose rate: ±1.5%. 5) Output factors (conos 1-10cm, MLC 1x1 a 40x40cm): ±1.5%. 6) Wedges (factor cuña): ±2%. 7) IMRT/VMAT QA: Gamma 3%/3mm ≥95%, 2%/2mm ≥90%. 8) Coincidencia haz/luz: ±2mm. 9) Isocentro (Winston-Lutz): ≤1mm.',
+            'Entregables: 1) Informe calibración referencia (metodología, patrón CENAM/IAEA, resultados, conformidad). 2) Informe IMRT/VMAT QA (gamma index, mapas dosis, DVH). 3) Constancia validación (firma físico médico responsable, vigencia). 4) Aviso COFEPRIS. 5) Etiqueta equipo. PARTIDA: "Calibración referencia trazable CENAM/IAEA: $25,000-$60,000. IMRT/VMAT QA semestral: $15,000-$30,000. Comisión TPS completa: $100,000-$250,000."'
+          ]
+        }
+      ]
