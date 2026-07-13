@@ -1527,6 +1527,164 @@ export const tareas: Tarea[] = [
             'Equipo PATRÓN trazable CENAM/IAEA OBLIGATORIO: Cámara Farmer 0.6cc (PTW 30013, Exradin A19) + electrómetro (PTW UNIDOS, Standard Imaging Max4000) certificado <12 meses. Phantom agua 30x30x30cm. Phantom IMRT (Delta4, ScandiDos Delta4 Discover, IBA MatriXX, Sun Nuclear MapCheck, ArcCHECK). Certificados calibración CENAM/IAEA adjuntos.',
             'Parámetros referencia (IAEA TRS-398 / AAPM TG-51): 1) kQ (factor calidad haz) ±0.5%. 2) Dosis referencia 10x10cm 100cm SSD: ±1%. 3) Linealidad dosis (MU): ±1% (10-400 MU). 4) Linealidad dose rate: ±1.5%. 5) Output factors (conos 1-10cm, MLC 1x1 a 40x40cm): ±1.5%. 6) Wedges (factor cuña): ±2%. 7) IMRT/VMAT QA: Gamma 3%/3mm ≥95%, 2%/2mm ≥90%. 8) Coincidencia haz/luz: ±2mm. 9) Isocentro (Winston-Lutz): ≤1mm.',
             'Entregables: 1) Informe calibración referencia (metodología, patrón CENAM/IAEA, resultados, conformidad). 2) Informe IMRT/VMAT QA (gamma index, mapas dosis, DVH). 3) Constancia validación (firma físico médico responsable, vigencia). 4) Aviso COFEPRIS. 5) Etiqueta equipo. PARTIDA: "Calibración referencia trazable CENAM/IAEA: $25,000-$60,000. IMRT/VMAT QA semestral: $15,000-$30,000. Comisión TPS completa: $100,000-$250,000."'
-          ]
-        }
-      ]
+                      ]
+                    },
+
+                    // ===== TAREAS ADICIONALES LOTE 3 - PARTE 3 (10 TAREAS FINALES) =====
+                    // Instaladores de Yeso / Drywall / Tablaroca Comercial - 2 más
+                    {
+                      id: 'tablaroca-reparacion-grietas-humedades',
+                      slug: 'tablaroca-reparacion-grietas-humedades',
+                      oficioId: 'yeso-drywall-comercial',
+                      name: 'Reparación de Grietas, Humedades y Daños en Tablaroca/Drywall',
+                      title: 'Cómo Cotizar Reparación Tablaroca: Grietas, Agujeros, Humedad, Moho, Desprendimiento',
+                      description: 'Presupuesto por m²/punto: diagnóstico causa (asentamiento, vibración, humedad, impacto), corte zona dañada, refuerzo perfilería, parche tablaroca, cintado, pasta 3 capas, lijado, sellado antihumedad, pintura.',
+                      priceRange: '$300 - $800 MXN/m² reparado | $500 - $2,000 MXN/punto según complejidad',
+                      estimatedTime: '2-6 horas por reparación',
+                      tips: [
+                        'Grieta fina (<1mm, asentamiento): abre en V + cinta fibra vidrio + pasta 3 manos = $300-$500/m². Grieta estructural (>2mm, movimiento activo): refuerzo perfilería + doble tablaroca + junta elástica = $600-$900/m². Agujero impacto (puño, mueble): parche 30x30cm + cinta + pasta = $500-$1,200/punto.',
+                        'Humedad/moho: CORTE 30cm MÁS ALLÁ de zona visible + elimina causa (filtración, condensación, fuga) + tablaroca resistente humedad (verde) + sellador antihumedad 2 manos + pintura antimoho = $800-$1,500/m². NO pongas tablaroca nueva sobre humedad: vuelve a salir en 2 semanas.',
+                        'Desprendimiento tablaroca (tornillos sueltos, perfilería oxidada): re-tornillado cada 20cm + tornillos más largos + cinta + pasta = $400-$700/m². Mínimo: 1 m² o $800. Entrega: "Diagnóstico causa + reparación garantía 1 año (si causa resuelta) + fotos antes/después + recomendación prevención".'
+                      ]
+                    },
+                    {
+                      id: 'tablaroca-acabados-nivel-5-pintura-fina',
+                      slug: 'tablaroca-acabados-nivel-5-pintura-fina',
+                      oficioId: 'yeso-drywall-comercial',
+                      name: 'Acabado Nivel 5 Tablaroca (Pintura Fina, Luz Rasante, Paredes Espejo)',
+                      title: 'Cuánto Cobrar por Acabado Nivel 5 Tablaroca: Pasta Dilatada, Lijado Extrafino, Imprimación Selladora',
+                      description: 'Presupuesto por m²: mano de obra extra sobre nivel 4 para paredes que recibirán pintura brillante, luz rasante, papel tapiz fino, acabados espejo. Incluye: pasta dilatada (skim coat) 1-2 manos, lijado extrafino (grano 220-320), imprimación selladora, inspección luz rasante.',
+                      priceRange: '$80 - $150 MXN/m² EXTRA sobre precio base nivel 4',
+                      estimatedTime: '30-50% más tiempo vs nivel 4 estándar',
+                      tips: [
+                        'Nivel 4 (estándar pintura mate): 3 manos pasta + lijado 150 grano = base. Nivel 5: +1-2 manos pasta dilatada (skim coat) cubriendo TODO + lijado 220-320 grano + imprimación selladora PVA/acrílica = superficie "vidrio". Diferencia: $80-$150/m² extra.',
+                        'CUÁNDO USAR NIVEL 5: Pintura satinada/brillo/semi-brillo, luz natural rasante (ventanas piso-techo), papel tapiz seda/vinílico fino, acabados venecianos, paredes "espejo" en showrooms. NO para pintura mate estándar (nivel 4 suficiente).',
+                        'Inspección: luz rasante (linterna paralela a pared) revela TODAS imperceptibles. Entrega: "Pared lista pintura fina + certificado nivel 5 + imprimación aplicada + hoja datos pasta/imprimación". Garantía: 1 año mano de obra. Mínimo: 20 m² o $2,000 extra.'
+                      ]
+                    },
+                    // Especialistas en Pisos Epóxicos / Poliuretano / Concreto Pulido - 2 más
+                    {
+                      id: 'piso-epoxico-antideslizante-rampas-cocinas',
+                      slug: 'piso-epoxico-antideslizante-rampas-cocinas',
+                      oficioId: 'pisos-epoxicos-industriales',
+                      name: 'Piso Epóxico Antideslizante Rampas, Cocinas, Áreas Húmedas (Cuarzo, Óxido Aluminio, Sílice)',
+                      title: 'Cómo Cotizar Piso Epóxico Antideslizante: Granalla, Cuarzo, Perfiles, Normativa Seguridad',
+                      description: 'Presupuesto por m²: base epóxica + carga antideslizante (cuarzo 0.5-1mm, óxido aluminio, sílice) + perfil antideslizante bordes + señalética + certificado coeficiente fricción. Rampas, cocinas industriales, duchas, áreas proceso alimentos.',
+                      priceRange: '$650 - $1,200 MXN/m² según nivel antideslizante (R9-R13)',
+                      estimatedTime: '200-400 m²/día (más lento por aplicación granalla)',
+                      tips: [
+                        'Nivel antideslizante DIN 51130: R9 (ligero, oficinas) = $650-$800/m². R10 (cocinas, baños) = $750-$950/m². R11 (rampas, áreas mojadas constantes) = $900-$1,100/m². R12-R13 (industrial extremo, aceite/grasa) = $1,000-$1,200/m². Incluye: granalla 0.5-1kg/m² + sellado poliuretano alifático UV 2 manos.',
+                        'Rampas: perfil antideslizante aluminio/acero inox cada 30-50cm (tipo escalón) + granalla gruesa (1-2mm) = +$150-$250/m². Señalética: franjas fotoluminiscentes bordes + pictogramas "RESBALADIZO" = +$80-$150/m². Señalética obligatoria NOM-026-STPS.',
+                        'Mantenimiento: barrido diario (evita acumulación granalla suelta) + fregado pH neutro semanal. Re-aplicación granalla zonas desgaste 2-3 años: $200-$400/m². Garantía: 3-5 años coeficiente fricción certificado. Mínimo: 100 m² o $80,000. Entrega: "Certificado coeficiente fricción (pendulomo) + fotos aplicación + hoja datos granalla".'
+                      ]
+                    },
+                    {
+                      id: 'piso-uretano-cementicio-camaras-frio',
+                      slug: 'piso-uretano-cementicio-camaras-frio',
+                      oficioId: 'pisos-epoxicos-industriales',
+                      name: 'Piso Uretano Cementicio Cámaras Frío/Congelación (-40°C a +120°C) Choque Térmico',
+                      title: 'Cómo Cotizar Piso Uretano Cementicio: Choque Térmico, Limpieza Vapor, Químicos Agresivos',
+                      description: 'Presupuesto por m²: uretano cementicio 6-12mm (tolerancia -40°C a +120°C), coving sanitario radio 30-50mm, desagües puntuales/lineales, pendientes 1-2%, juntas selladas, certificado HACCP/ISO 22000. Cámaras congelación, cocinas industriales, lácteos, cárnicos.',
+                      priceRange: '$1,200 - $2,500 MXN/m² sistema 6-12mm',
+                      estimatedTime: '100-200 m²/día (más lento por espesor y detalle sanitario)',
+                      tips: [
+                        'Uretano cementicio 6mm (congelación -18°C a -25°C): $1,200-$1,600/m². 9mm (congelación -30°C a -40°C): $1,600-$2,000/m². 12mm (choque extremo -40°C a +120°C, vapor limpieza): $2,000-$2,500/m². Epóxico/poliuretano NO aguantan choque térmico: se desprenden en semanas.',
+                        'Detalles sanitarios OBLIGATORIOS: Coving (rodapié curvo radio 30-50mm) muro-piso: $300-$500/ml. Desagüe puntual (sifón higiénico acero inox 304/316): $3,000-$6,000 c/u. Desagüe lineal (ranura 100-150mm): $2,500-$4,000/ml. Pendientes 1-2% hacia desagües: +$100-$200/m² mortero previo. Juntas constructivas: sellador PU + perfil acero inox: $200-$350/ml.',
+                        'Validación HACCP/ISO 22000: Rugosidad <0.5μm (profilómetro), pendientes correctas (nivel láser), sellado 100% juntas, coving radio continuo, desagües operativos. Certificado aplicador + hoja datos + curva resistencia química + protocolo limpieza: $15,000-$30,000 partida separada. Mínimo: 100 m² o $150,000.'
+                      ]
+                    },
+                    // Instaladores de Cercas Perimetrales / Malla Ciclónica / Panel / Eléctricas - 2 más
+                    {
+                      id: 'malla-ciclonica-residencial-industrial-portones',
+                      slug: 'malla-ciclonica-residencial-industrial-portones',
+                      oficioId: 'cercas-perimetrales-malla',
+                      name: 'Malla Ciclónica Galvanizada/PVC Residencial e Industrial + Portones Batientes/Corredizos',
+                      title: 'Cuánto Cobrar por Metro Lineal Malla Ciclónica: Postes, Tensor, Grapas, Concreto, Portón',
+                      description: 'Presupuesto por ml: malla rombo 50-75mm calibre 12-16, postes PTR 1.5-3" c/2.5m, tensor esquina/intermedio, grapas/alambre张力, zapata concreto 30x30x50cm, portón peatonal/vehicular, concertina opcional.',
+                      priceRange: '$350 - $900 MXN/ml según altura, calibre, tipo malla',
+                      estimatedTime: '50-100 ml/día equipo 3 personas (incluye concreto)',
+                      tips: [
+                        'Residencial 2m altura: Malla galv calibre 12.5 rombo 60mm + PTR 2" sch40 c/2.5m + tensor esquina + grapas + concreto: $350-$450/ml. Industrial 2.5-3m: Malla calibre 11/10 + PTR 3" + tensor cada 20m + alambre张力 2.5mm: $500-$700/ml. PVC verde/negro (estética + anticorrosión): +30-40% vs galvanizada. Panel 3D (rigidez + estética): $550-$900/ml.',
+                        'Portones: Peatonal 1m (marco PTR + malla + bisagras pesadas + chapa): $4,000-$7,000. Vehicular corredizo 3-4m (motor + cremallera + fotocélula + 2 controles): $18,000-$35,000. Batiente 2 hojas 3m c/u: $22,000-$40,000. Incluye: cimentación motor, cableado, programación. Concertina (clip simple/doble) sobre cerca: $150-$300/ml.',
+                        'Permisos: >2.5m altura o zona federal requiere licencia municipal + alineamiento vecino (acta firmada). Cotiza PARTIDA SEPARADA: "Trámite licencia + acta vecino + topógrafo deslinde: $5,000-$20,000". Mínimo obra: 30 ml o $12,000. Garantía: 5 años estructura, 10 años malla galv (fabricante). Entrega: "Croquis perímetro + fotos cimentación + llaves portones + certificado galvanizado".'
+                      ]
+                    },
+                    {
+                      id: 'cerca-electrica-ganadera-residencial-monitoreo',
+                      slug: 'cerca-electrica-ganadera-residencial-monitoreo',
+                      oficioId: 'cercas-perimetrales-malla',
+                      name: 'Cerca Eléctrica Ganadera y Residencial (Energizador, Hilos, Aisladores, Puesta Tierra, Monitoreo 24/7)',
+                      title: 'Cómo Cotizar Cerca Eléctrica: Energizador Joules, Hilos 2.5mm, Aisladores, Tierra, Sirena, App, Monitoreo',
+                      description: 'Presupuesto por ml + equipo: energizador 1-15 Joules (solar/red/híbrido), hilo alta tensión 2.5mm (3-8 hilos), aisladores porcelana/plástico, posta esquina/tensor, varilla tierra 2-3m, cable tierra, señalética, certificado PC, monitoreo 24/7 opcional.',
+                      priceRange: '$200 - $400 MXN/ml + $3,000 - $15,000 equipo energizador',
+                      estimatedTime: '100-200 ml/día equipo 2 personas (sin zanja tierra)',
+                      tips: [
+                        'Ganadera (control ganado): 3-5 hilos 2.5mm c/30-50cm, energizador 3-8 Joules (1J/10km hilo limpio), posta madera/PTR c/5-10m, aisladores anillo/torno: $200-$300/ml + energizador $4,000-$12,000. Residencial/seguridad (antihuacho): 5-8 hilos c/15-20cm, energizador 5-15 Joules (alto voltaje, baja energía), aisladores plástico UV, sirena/estroboscópica, teclado/botón pánico: $300-$400/ml + energizador $8,000-$15,000.',
+                        'Puesta a tierra (CRÍTICO): 3 varillas 3/4"x3m cobre/acero cobreado triángulo 3m + cable 16mm² + caja registro + medición <10 ohmios: $3,000-$6,000. Si suelo seco/rocoso: pozo profundo + bentonita + varilla 10m: $10,000-$20,000. SIN BUENA TIERRA LA CERCA NO FUNCIONA. Incluye: "Certificado ohmios + medición fotos + croquis tierra".',
+                        'Normativa: NOM-001-SEDE-2012 (instalaciones eléctricas), PC local (señalética "PELIGRO ALTA TENSIÓN" c/10m + altura mínima 1.8m). Residencial: aviso vecino + acta. Monitoreo 24/7 (central receptora): $300-$800/mes. Cotiza PARTIDA: "Proyecto ejecutivo + trámite PC + certificado puesta tierra + capacitación usuario: $5,000-$15,000". Garantía energizador 2-3 años fabricante.'
+                      ]
+                    },
+                    // Técnicos en Mantenimiento de Elevadores / Montacargas / Plataformas - 2 más
+                    {
+                      id: 'mantenimiento-preventivo-elevador-traccion',
+                      slug: 'mantenimiento-preventivo-elevador-traccion',
+                      oficioId: 'mantenimiento-elevadores',
+                      name: 'Mantenimiento Preventivo Mensual Elevador Tracción 4-10 Paradas (Máquina, Guías, Cables, Frenos, Cabina)',
+                      title: 'Checklist y Precio Mantenimiento Elevador Tracción: Máquina Gearless/Geared, Selectores, Amortiguadores, Puertas',
+                      description: 'Visita mensual: máquina tracción (geared/gearless), guías/zapatas, cables tracción, frenos, selectores/encoders, limitadores/topos/amortiguadores, puertas piso (corta fuego, automáticas), cabina (luz, ventilación, botonera, emergencia), foso, cuarto máquinas, reporte digital + fotos.',
+                      priceRange: '$3,500 - $6,000 MXN/mes por elevador',
+                      estimatedTime: '2-3 horas por visita',
+                      tips: [
+                        'Tracción 4-10 paradas (geared): $3,500-$5,000/mes. Gearless alta velocidad >10 paradas: $5,000-$9,000/mes. Incluye: 12 visitas/año + emergencia 24h (mano de obra) + refacciones menores (contactos, lámparas, botones, fusibles, grasa guías 20kg/año) + reporte digital + bitácora NOM-001-SEDE. NO incluye: cambio cables ($15k-$30k), máquina, tablero, puertas, cables compensación.',
+                        'Checklist crítico: 1) Máquina: desgaste polea/sheave, nivel/calidad aceite reductor, temperatura cojinetes, vibración, frenos (desgaste pastillas, ajuste aire). 2) Cables: desgaste (diámetro, alambres rotos), lubricación, tensión igualada, vida útil (5-7 años). 3) Puertas piso: cierre, contacto, holguras <5mm, detector obstáculos, operator VVVF. 4) Cabina: paro emergencia, intercomunicador, iluminación, ventilación, botonera braille, display pisos. 5) Foso: limpio, seco, topes, amortiguador, interruptor foso. 6) Cuarto máquinas: limpio, ventilado, extintor, diagrama unifilar, manual.',
+                        'Contrato 3-5 años: 10-15% descuento. Penalización respuesta >2h: 5% mensualidad/día. Bono 0 fallas crítico/año: 1 mes gratis. Cliente grande (5+ elevadores): tarifa volumen $2,000-$3,000/elevador. Entrega: "Reporte mensual PDF + bitácora física firmada + alertas WhatsApp/email inmediato si anomalía".'
+                      ]
+                    },
+                    {
+                      id: 'modernizacion-elevador-destination-dispatch',
+                      slug: 'modernizacion-elevador-destination-dispatch',
+                      oficioId: 'mantenimiento-elevadores',
+                      name: 'Modernización Elevador Destination Dispatch (Botoneras Destino, IA Predicción Tráfico, Agrupamiento Inteligente)',
+                      title: 'Cuánto Cuesta Modernizar a Destination Dispatch: Botoneras Destino, Algoritmo IA, Eficiencia Energética, Tiempo Espera',
+                      description: 'Proyecto llave en mano: botoneras destino (lobby/cada piso), algoritmo IA predicción tráfico, agrupamiento inteligente usuarios mismo destino, interfaz táctil/voz/app, integración control acceso, certificación NOM-001-SEDE/NMX-V-143, 10-20 días fuera servicio.',
+                      priceRange: '$500,000 - $1,500,000+ MXN por elevador según flota y complejidad',
+                      estimatedTime: '10-20 días fuera de servicio por elevador',
+                      tips: [
+                        'Destination Dispatch básico (botoneras destino + algoritmo agrupamiento): $500,000-$800,000. IA predicción tráfico (aprendizaje patrones hora/día/semana + ajuste dinámico): $800,000-$1,200,000. Flota completa 4+ elevadores + supervisión remota IoT + app usuario llamada ascensor: $1,200,000-$2,000,000. Ahorro energía: 20-30% vs convencional. Reducción tiempo espera: 30-50%.',
+                        'Incluye: Estudio tráfico (simulación Monte Carlo 10,000+ escenarios) + botoneras destino (táctiles, braille, voz, RFID/app) + algoritmo IA (aprendizaje continuo, predicción picos, balanceo carga) + integración control acceso (tarjeta/biométrico = piso directo) + supervisión remota IoT (alertas predictivas, dashboard flota) + certificación NOM-001-SEDE/NMX-V-143 + capacitación usuarios + manuales + garantía 2-5 años tablero/software.',
+                        'ROI: Edificio oficinas 20 pisos 4 elevadores: tiempo espera 45s→20s, viajes vacíos -40%, energía -25%. Payback 3-5 años vs costo operación actual. Financiamiento: 36-72 meses (arrendamiento puro/financiero). Cotiza PARTIDA: "Estudio tráfico + proyecto ejecutivo: $50,000-$100,000 (se abona a contrato)".'
+                      ]
+                    },
+                    // Instaladores de Sistemas Contra Incendio / Rociadores / Detectores / Extintores - 2 más
+                    {
+                      id: 'red-rocidadores-esfr-almacenes-altos',
+                      slug: 'red-rocidadores-esfr-almacenes-altos',
+                      oficioId: 'sistemas-contra-incendio',
+                      name: 'Red Rociadores ESFR Almacenes Altos (Early Suppression Fast Response, K=14-25, NFPA 13)',
+                      title: 'Cuánto Cuesta m² Rociadores ESFR Almacenes: Cálculo Hidráulico, Bombas, Tanques, Certificación',
+                      description: 'Presupuesto por m²: cálculo hidráulico, rociadores ESFR K=14-25.2 (respuesta rápida, gran gota), tubería sch40 + acoples ranurados, válvulas alarma/zona/control/retención/drenaje, bombeo (eléctrico/diésel/jockey), tanques, certificación PC/NFPA 13/20.',
+                      priceRange: '$550 - $1,000 MXN/m² área protegida (almacén ordinario/extra hazard)',
+                      estimatedTime: '500-1,000 m²/semana equipo 4-6 personas',
+                      tips: [
+                        'ESFR K=14-25.2 (respuesta rápida, gota grande penetra fuego): $550-$850/m² (incluye: tubería sch40 ranurada 1"-4", acoples Victaulic, válvula alarma 2.5-4", válvula zona por nivel, manómetros, drenaje principal, inspector test, señalización). Almacén extra hazard (plásticos, químicos): ESFR K=25.2 + sch40 + bombeo: $750-$1,200/m². Pre-acción/deluge (data centers, archivos): $800-$1,200/m².',
+                        'Bombeo (si presión red insuficiente): Bomba horizontal split case + motor eléctrico + tablero arranque estrella-triángulo/VFD + tanque succión + jockey + controlador presión + certificación: $250,000-$800,000 según caudal/presión. Cisterna (si no hay red): $150,000-$400,000 (concreto/acero). COTIZA SIEMPRE PARTIDAS SEPARADAS: "Red rociadores", "Bombeo", "Cisterna", "Alarma central", "Certificación".',
+                        'Pruebas: Hidrostática 1.5x presión trabajo (mín 150 psi) 2h sin caída. Inspector test (simula 1 rociador): caudal/presión. Alarma: tiempo <90s desde apertura rociador. Entrega: "Cálculo hidráulico (HASS/HCAD) + planos as-built + certificado prueba + carpeta materiales (certificados tubería, rociadores, válvulas) + manual operación + capacitación 2h personal". Vigencia certificación: 1 año (revisión anual NFPA 25).'
+                      ]
+                    },
+                    {
+                      id: 'extintores-vehiculos-flota-empresarial',
+                      slug: 'extintores-vehiculos-flota-empresarial',
+                      oficioId: 'sistemas-contra-incendio',
+                      name: 'Extintores para Flota Vehicular Empresarial (Autos, Camiones, Autobuses, Montacargas, Normativa)',
+                      title: 'Cómo Cotizar Extintores Flota Vehicular: Tipo, Capacidad, Soporte, Señalética, Recarga Anual, Certificación',
+                      description: 'Cálculo por vehículo: extintor PQS 1-2kg (auto), 3-6kg (camión), 6-10kg (autobús), 2-4kg (montacargas). Incluye: soporte vehicular certificado, señalética, instalación, capacitación conductor, recarga anual, hidroprueba 5 años, bitácora digital QR/NFC.',
+                      priceRange: 'PQS 1kg $800-$1,200 | 2kg $1,000-$1,500 | 6kg $1,500-$2,200 | 10kg $2,500-$3,500 (instalado c/u)',
+                      estimatedTime: '15-30 min instalación por vehículo',
+                      tips: [
+                        'Auto particular/ejecutivo: PQS 1-2kg ABC (soporte magnético/atarraje + señalética): $800-$1,500. Camión reparto/carga: PQS 3-6kg ABC (soporte vehicular vibración + chapa seguridad): $1,200-$2,000. Autobús/pasajeros: PQS 6-10kg ABC + CO2 2-5kg (motor/eléctrico) + señalética "EXTINTOR AQUÍ": $2,500-$4,500. Montacargas: PQS 2-4kg ABC + CO2 2kg (batería/eléctrico) + soporte anti-vibración: $1,500-$3,000.',
+                        'Recarga ANUAL (obligatoria NOM-154): PQS 1-2kg $200-$300, 3-6kg $300-$500, 6-10kg $400-$600. Hidroprueba 5 años (cilindro): $300-$500 c/u. Contrato 3-5 años flota 10+ vehículos: 10-15% descuento + bitácora digital QR/NFC por extintor (historial, alertas vencimiento, fotos inspección). Incluye: "Capacitación 15min conductor (PASS: Pull, Aim, Squeeze, Sweep) + certificado entrega + bitácora digital + alertas WhatsApp vencimiento".',
+                        'Clase K (cocina food truck): 6L químico húmedo $3,500-$5,000 instalado. CO2 5kg (cuarto servidor/baterías): $2,500-$3,500. Señalética fotoluminiscente NOM-003-SEGOB: $150-$300 c/u. ENTREGA: "Croquis ubicación por vehículo + certificado c/u + bitácora digital + capacitación video/presencial + calendario recargas".'
+                      ]
+                    }
+                  ]
+                
