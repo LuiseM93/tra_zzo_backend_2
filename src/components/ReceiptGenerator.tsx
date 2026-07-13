@@ -338,43 +338,65 @@ export default function ReceiptGenerator({ isPro }: { isPro: boolean }) {
             {/* Action Buttons Area */}
 
                         {/* Email input inline (appears when user clicks "Enviar por email") */}
-                        {showEmailInput && (
-                          <div className="flex flex-col md:flex-row gap-2 flex-wrap w-full mb-2">
-                            <input
-                                                          type="email"
-                                                          placeholder="email@cliente.com"
-                                                          value={clientEmail}
-                                                          onChange={(e) => setClientEmail(e.target.value)}
-                                                          className="flex-1 h-12 px-4 bg-surface border-0 border-b-2 border-outline focus:border-primary focus:ring-0 font-body-md text-body-md text-on-background w-full transition-colors rounded-t outline-none"
-                                                          autoFocus
-                                                        />
-                            <button
-                              onClick={handleSendEmail}
-                              disabled={sendingEmail || !clientEmail.includes('@')}
-                              className="flex-grow md:flex-grow-0 h-12 px-4 bg-primary text-on-primary font-label-caps text-label-caps uppercase rounded flex items-center justify-center gap-2 shadow-sm hover:bg-primary-container transition-colors opacity-50"
-                            >
-                              {sendingEmail ? (
-                                <>
-                                  <span className="material-symbols-outlined animate-spin" data-icon="sync">sync</span>
-                                  Enviando...
-                                </>
-                              ) : (
-                                <>
-                                  <span className="material-symbols-outlined" data-icon="send">send</span>
-                                  Enviar
-                                </>
-                              )}
-                            </button>
-                            <button
-                              onClick={() => { setShowEmailInput(false); setClientEmail('') }}
-                              className="h-12 px-4 border-2 border-outline text-on-surface-variant font-label-caps text-label-caps uppercase rounded flex items-center justify-center gap-2 hover:bg-surface-container-low transition-colors"
-                            >
-                              Cancelar
-                            </button>
-                          </div>
-                        )}
+                                                {showEmailInput && (
+                                                  <div className="flex flex-col md:flex-row gap-2 flex-wrap w-full mb-2">
+                                                    <input
+                                                                                  type="email"
+                                                                                  placeholder="email@cliente.com"
+                                                                                  value={clientEmail}
+                                                                                  onChange={(e) => setClientEmail(e.target.value)}
+                                                                                  className="flex-1 h-12 px-4 bg-surface border-0 border-b-2 border-outline focus:border-primary focus:ring-0 font-body-md text-body-md text-on-background w-full transition-colors rounded-t outline-none"
+                                                                                  autoFocus
+                                                                                />
+                                                    <button
+                                                      onClick={handleSendEmail}
+                                                      disabled={sendingEmail || !clientEmail.includes('@')}
+                                                      className="flex-grow md:flex-grow-0 h-12 px-4 bg-primary text-on-primary font-label-caps text-label-caps uppercase rounded flex items-center justify-center gap-2 shadow-sm hover:bg-primary-container transition-colors opacity-50"
+                                                    >
+                                                      {sendingEmail ? (
+                                                        <>
+                                                          <span className="material-symbols-outlined animate-spin" data-icon="sync">sync</span>
+                                                          Enviando...
+                                                        </>
+                                                      ) : (
+                                                        <>
+                                                          <span className="material-symbols-outlined" data-icon="send">send</span>
+                                                          Enviar
+                                                        </>
+                                                      )}
+                                                    </button>
+                                                    <button
+                                                      onClick={() => { setShowEmailInput(false); setClientEmail('') }}
+                                                      className="h-12 px-4 border-2 border-outline text-on-surface-variant font-label-caps text-label-caps uppercase rounded flex items-center justify-center gap-2 hover:bg-surface-container-low transition-colors"
+                                                    >
+                                                      Cancelar
+                                                    </button>
+                                                  </div>
+                                                )}
 
-                        {/* Action Buttons Area */}
+                                                {/* Pro Upsell inside email input */}
+                                                {showEmailInput && !isPro && (
+                                                  <div className="flex flex-col md:flex-row gap-3 w-full mb-2 p-3 bg-primary-container border border-primary rounded-xl">
+                                                    <div className="flex items-center gap-2 text-primary">
+                                                      <span className="material-symbols-outlined" data-icon="diamond">diamond</span>
+                                                      <span className="font-label-caps text-label-caps uppercase text-primary">Pro $99 · pago único</span>
+                                                    </div>
+                                                    <ul className="flex flex-col md:flex-row gap-2 md:gap-4 text-sm text-on-primary-container">
+                                                      <li className="flex items-center gap-1"><span className="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span> Sin marca de agua</li>
+                                                      <li className="flex items-center gap-1"><span className="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span> Tu logo en el recibo</li>
+                                                      <li className="flex items-center gap-1"><span className="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span> Historial ilimitado</li>
+                                                    </ul>
+                                                    <button
+                                                      onClick={() => window.location.href = '/auth?plan=pro'}
+                                                      className="mt-1 md:mt-0 md:ml-auto h-10 px-4 bg-primary text-on-primary font-label-caps text-label-caps uppercase rounded flex items-center justify-center gap-1 hover:bg-primary-container transition-colors whitespace-nowrap"
+                                                    >
+                                                      <span className="material-symbols-outlined" data-icon="upgrade">upgrade</span>
+                                                      Actualizar a Pro
+                                                    </button>
+                                                  </div>
+                                                )}
+
+                                                {/* Action Buttons Area */}
                         <div className="flex flex-col md:flex-row gap-4 flex-wrap bg-surface py-4 border-t border-outline-variant sticky bottom-0 z-40 lg:static">
                             <button
                               onClick={() => { setShowEmailInput(true); setClientEmail('') }}
