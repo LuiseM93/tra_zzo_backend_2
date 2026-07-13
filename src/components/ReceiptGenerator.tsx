@@ -411,19 +411,19 @@ export default function ReceiptGenerator({ isPro }: { isPro: boolean }) {
                                                                                                 )}
 
                                                 {/* Action Buttons Area */}
-                                                                        <div className="flex flex-col md:flex-row gap-4 flex-wrap bg-surface py-4 border-t border-outline-variant sticky bottom-0 z-40 lg:static">
+                                                                                                                        <div className="flex flex-col md:flex-row gap-4 flex-wrap bg-surface py-4 border-t border-outline-variant sticky bottom-0 z-40 lg:static">
+                                                                                                                            <button
+                                                                                                                              onClick={() => { setShowEmailInput(true); setClientEmail('') }}
+                                                                                                                              className="flex-grow md:flex-grow-0 h-12 px-gutter bg-primary text-on-primary font-label-caps text-label-caps uppercase rounded-none transition-colors hover:opacity-90 flex items-center justify-center gap-2">
+                                                                                                                                <span className="material-symbols-outlined align-middle">email</span>
+                                                                                                                                Enviar por email
+                                                                                                                            </button>
                                                                             <button
-                                                                              onClick={() => { setShowEmailInput(true); setClientEmail('') }}
-                                                                              className="flex-grow md:flex-grow-0 h-12 px-gutter border-2 border-primary text-primary font-label-caps text-label-caps uppercase rounded-none hover:bg-surface-container transition-colors">
-                                                                                <span className="material-symbols-outlined" data-icon="mail">mail</span>
-                                                                                Enviar por email
+                                                                              onClick={handleWhatsApp}
+                                                                              className="flex-grow md:flex-grow-0 h-12 px-gutter border-2 border-primary text-primary font-label-caps text-label-caps uppercase rounded-none hover:bg-surface-container transition-colors flex items-center justify-center gap-2">
+                                                                                <span className="material-symbols-outlined" data-icon="send" data-weight="fill">send</span>
+                                                                                Compartir por WhatsApp
                                                                             </button>
-                            <button
-                              onClick={handleWhatsApp}
-                              className="flex-grow md:flex-grow-0 h-12 px-gutter bg-primary text-on-primary font-label-caps text-label-caps uppercase rounded flex items-center justify-center gap-2 shadow-sm hover:bg-primary-container transition-colors">
-                                <span className="material-symbols-outlined" data-icon="send" data-weight="fill">send</span>
-                                Compartir por WhatsApp
-                            </button>
                             <button
                               onClick={handleExportPDF}
                               className="flex-grow md:flex-grow-0 h-12 px-4 border-2 border-primary text-primary font-label-caps text-label-caps uppercase rounded flex items-center justify-center gap-2 hover:bg-surface-container-low transition-colors">
