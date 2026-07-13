@@ -374,50 +374,50 @@ export default function ReceiptGenerator({ isPro }: { isPro: boolean }) {
                                                   </div>
                                                 )}
 
-                                                {/* Pro Upsell inside email input - Design System compliant */}
+                                                {/* Pro Upsell inside email input - Design System compliant (Monochrome) */}
                                                                                                 {showEmailInput && !isPro && (
-                                                                                                  <div className="flex flex-col md:flex-row items-center md:items-start gap-4 p-4 bg-secondary-container border border-outline">
-                                                                                                  {/* Pro Badge */}
-                                                                                                  <div className="flex flex-col items-center gap-1 px-3 py-2 bg-secondary text-on-secondary font-label-caps text-label-caps">
-                                                                                                    <span>PRO $99</span>
-                                                                                                    <span className="text-[10px] leading-none opacity-80">PAGO ÚNICO</span>
-                                                                                                  </div>
+                                                                                                  <div className="flex flex-col md:flex-row items-center md:items-start gap-4 p-4 bg-surface-container border border-outline-variant">
+                                                                                                    {/* Pro Badge */}
+                                                                                                    <div className="flex flex-col items-center gap-1 px-3 py-2 bg-primary text-on-primary font-label-caps text-label-caps">
+                                                                                                      <span>PRO $99</span>
+                                                                                                      <span className="text-[10px] leading-none opacity-80">PAGO ÚNICO</span>
+                                                                                                    </div>
 
-                                                                                                  {/* Features */}
-                                                                                                  <div className="flex-1 flex items-center md:flex-row flex-wrap gap-4 text-on-surface-variant font-body-sm">
-                                                                                                    {[
-                                                                                                      'Sin marca de agua',
-                                                                                                      'Tu logo en el recibo',
-                                                                                                      'Historial ilimitado'
-                                                                                                    ].map((text, i) => (
-                                                                                                      <div key={i} className="flex items-center gap-2">
-                                                                                                        <div className="w-5 h-5 flex items-center justify-center bg-secondary text-on-secondary">
-                                                                                                          <span className="material-symbols-outlined text-[16px]">check</span>
+                                                                                                    {/* Features */}
+                                                                                                    <div className="flex-1 flex items-center md:flex-row flex-wrap gap-4 text-on-surface-variant font-body-sm">
+                                                                                                      {[
+                                                                                                        'Sin marca de agua',
+                                                                                                        'Tu logo en el recibo',
+                                                                                                        'Historial ilimitado'
+                                                                                                      ].map((text, i) => (
+                                                                                                        <div key={i} className="flex items-center gap-2">
+                                                                                                          <div className="w-5 h-5 flex items-center justify-center bg-primary text-on-primary">
+                                                                                                            <span className="material-symbols-outlined text-[16px]">check</span>
+                                                                                                          </div>
+                                                                                                          <span className="whitespace-nowrap">{text}</span>
                                                                                                         </div>
-                                                                                                        <span className="whitespace-nowrap">{text}</span>
-                                                                                                      </div>
-                                                                                                    ))}
-                                                                                                  </div>
+                                                                                                      ))}
+                                                                                                    </div>
 
-                                                                                                  {/* CTA - Secondary (indigo) for max contrast */}
-                                                                                                  <button
-                                                                                                    onClick={() => window.location.href = '/auth?plan=pro'}
-                                                                                                    className="h-12 px-6 bg-secondary text-on-secondary font-label-caps text-label-caps uppercase rounded-none transition-colors hover:opacity-90 whitespace-nowrap"
-                                                                                                  >
-                                                                                                    <span className="material-symbols-outlined align-middle mr-1">arrow_upward</span>
-                                                                                                    ACTUALIZAR A PRO
-                                                                                                  </button>
-                                                                                                </div>
-                                                                                              )}
+                                                                                                    {/* CTA - Primary (black) for max contrast */}
+                                                                                                    <button
+                                                                                                      onClick={() => window.location.href = '/auth?plan=pro'}
+                                                                                                      className="h-12 px-6 bg-primary text-on-primary font-label-caps text-label-caps uppercase rounded-none transition-colors hover:opacity-90 whitespace-nowrap"
+                                                                                                    >
+                                                                                                      <span className="material-symbols-outlined align-middle mr-1">arrow_upward</span>
+                                                                                                      ACTUALIZAR A PRO
+                                                                                                    </button>
+                                                                                                  </div>
+                                                                                                )}
 
                                                 {/* Action Buttons Area */}
-                        <div className="flex flex-col md:flex-row gap-4 flex-wrap bg-surface py-4 border-t border-outline-variant sticky bottom-0 z-40 lg:static">
-                            <button
-                              onClick={() => { setShowEmailInput(true); setClientEmail('') }}
-                              className="flex-grow md:flex-grow-0 h-12 px-gutter bg-secondary text-on-secondary font-label-caps text-label-caps uppercase rounded flex items-center justify-center gap-2 shadow-sm hover:bg-secondary-container transition-colors">
-                                <span className="material-symbols-outlined" data-icon="mail">mail</span>
-                                Enviar por email
-                            </button>
+                                                                        <div className="flex flex-col md:flex-row gap-4 flex-wrap bg-surface py-4 border-t border-outline-variant sticky bottom-0 z-40 lg:static">
+                                                                            <button
+                                                                              onClick={() => { setShowEmailInput(true); setClientEmail('') }}
+                                                                              className="flex-grow md:flex-grow-0 h-12 px-gutter border-2 border-primary text-primary font-label-caps text-label-caps uppercase rounded-none hover:bg-surface-container transition-colors">
+                                                                                <span className="material-symbols-outlined" data-icon="mail">mail</span>
+                                                                                Enviar por email
+                                                                            </button>
                             <button
                               onClick={handleWhatsApp}
                               className="flex-grow md:flex-grow-0 h-12 px-gutter bg-primary text-on-primary font-label-caps text-label-caps uppercase rounded flex items-center justify-center gap-2 shadow-sm hover:bg-primary-container transition-colors">
