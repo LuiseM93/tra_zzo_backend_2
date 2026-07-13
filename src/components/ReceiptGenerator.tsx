@@ -25,14 +25,17 @@ export default function ReceiptGenerator({ isPro }: { isPro: boolean }) {
   const [notes, setNotes] = useState('')
 
   // Suppress hydration warning for date
-  const [currentDate, setCurrentDate] = useState('')
-  const [toast, setToast] = useState<string | null>(null)
+    const [currentDate, setCurrentDate] = useState('')
+    const [toast, setToast] = useState<string | null>(null)
+    const [clientEmail, setClientEmail] = useState('')
+    const [sendingEmail, setSendingEmail] = useState(false)
+      const [showEmailInput, setShowEmailInput] = useState(false)
 
-  useEffect(() => {
-    setCurrentDate(new Date().toLocaleDateString('es-ES'))
-  }, [])
+      useEffect(() => {
+      setCurrentDate(new Date().toLocaleDateString('es-ES'))
+    }, [])
 
-  const showToast = (msg: string) => {
+    const showToast = (msg: string) => {
     setToast(msg)
     setTimeout(() => setToast(null), 5000)
   }
@@ -94,55 +97,92 @@ export default function ReceiptGenerator({ isPro }: { isPro: boolean }) {
   }
 
   const handleWhatsApp = async () => {
-    const canvas = await generateCanvas()
-    if (!canvas) return
+      const canvas = await generateCanvas()
+      if (!canvas) return
 
-    const shareText = 'Aquí tienes tu recibo generado con Trazzo'
-    const fileName = `recibo-${clientName || 'cliente'}.png`
+      const shareText = 'Aquí tienes tu recibo generado con Trazzo'
+      const fileName = `recibo-${clientName || 'cliente'}.png`
 
-    // Convertir canvas a Blob
-    const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, 'image/png'))
-    if (!blob) return
+      // Convertir canvas a Blob
+      const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, 'image/png'))
+      if (!blob) return
 
-    const file = new File([blob], fileName, { type: 'image/png' })
+      const file = new File([blob], fileName, { type: 'image/png' })
 
-    // Móvil: usar Web Share API con archivo adjunto
-    if (
-      typeof navigator !== 'undefined' &&
-      navigator.canShare &&
-      navigator.canShare({ files: [file] })
-    ) {
-      try {
-        await navigator.share({
-          files: [file],
-          text: shareText,
-        })
-        return
-      } catch (err) {
-        // Usuario canceló — no hacer nada
-        if ((err as Error).name !== 'AbortError') {
-          console.error('Web Share error:', err)
+      // Móvil: usar Web Share API con archivo adjunto
+      if (
+        typeof navigator !== 'undefined' &&
+        navigator.canShare &&
+        navigator.canShare({ files: [file] })
+      ) {
+        try {
+          await navigator.share({
+            files: [file],
+            text: shareText,
+          })
+          return
+        } catch (err) {
+          // Usuario canceló — no hacer nada
+          if ((err as Error).name !== 'AbortError') {
+            console.error('Web Share error:', err)
+          }
+          return
         }
+      }
+
+      // Fallback para PC / navegadores sin soporte:
+      // 1. Descargar la imagen automáticamente
+      const link = document.createElement('a')
+      link.download = fileName
+      link.href = canvas.toDataURL('image/png')
+      link.click()
+
+      // 2. Abrir WhatsApp con texto precargado
+      const waUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`
+      window.open(waUrl, '_blank')
+
+      // 3. Mostrar toast informativo
+      showToast('Imagen descargada. Se abrirá WhatsApp, solo adjunta la imagen desde tus descargas.')
+    }
+
+    const generatePDFBase64 = async () => {
+      const canvas = await generateCanvas()
+      if (!canvas) return ''
+      return canvas.toDataURL('image/png')
+    }
+
+    const handleSendEmail = async () => {
+      if (!clientEmail || !clientEmail.includes('@')) {
+        showToast('Email inválido')
         return
+      }
+      setSendingEmail(true)
+      try {
+        const pdfBase64 = await generatePDFBase64()
+        const res = await fetch('/api/send-pdf', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            pdfBase64,
+            clientEmail,
+            clientName: clientName || 'Cliente'
+          })
+        })
+        const data = await res.json()
+        if (data.success) {
+          showToast('¡Enviado! Revisa tu bandeja de entrada.')
+          setClientEmail('')
+        } else {
+          showToast('Error: ' + data.error)
+        }
+      } catch {
+        showToast('Error de conexión')
+      } finally {
+        setSendingEmail(false)
       }
     }
 
-    // Fallback para PC / navegadores sin soporte:
-    // 1. Descargar la imagen automáticamente
-    const link = document.createElement('a')
-    link.download = fileName
-    link.href = canvas.toDataURL('image/png')
-    link.click()
-
-    // 2. Abrir WhatsApp con texto precargado
-    const waUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`
-    window.open(waUrl, '_blank')
-
-    // 3. Mostrar toast informativo
-    showToast('Imagen descargada. Se abrirá WhatsApp, solo adjunta la imagen desde tus descargas.')
-  }
-
-  return (
+    return (
     <div className="flex flex-col lg:flex-row gap-margin-desktop items-start">
         
         {/* Left Column: Formulario */}
@@ -288,27 +328,72 @@ export default function ReceiptGenerator({ isPro }: { isPro: boolean }) {
             )}
 
             {/* Action Buttons Area */}
-            <div className="flex flex-col md:flex-row gap-4 flex-wrap bg-surface py-4 border-t border-outline-variant sticky bottom-0 z-40 lg:static">
-                <button 
-                  onClick={handleWhatsApp}
-                  className="flex-grow md:flex-grow-0 h-12 px-gutter bg-primary text-on-primary font-label-caps text-label-caps uppercase rounded flex items-center justify-center gap-2 shadow-sm hover:bg-primary-container transition-colors">
-                    <span className="material-symbols-outlined" data-icon="send" data-weight="fill">send</span>
-                    Compartir por WhatsApp
-                </button>
-                <button 
-                  onClick={handleExportPDF}
-                  className="flex-grow md:flex-grow-0 h-12 px-4 border-2 border-primary text-primary font-label-caps text-label-caps uppercase rounded flex items-center justify-center gap-2 hover:bg-surface-container-low transition-colors">
-                    <span className="material-symbols-outlined" data-icon="download">download</span>
-                    PDF
-                </button>
-                <button 
-                  onClick={handleExportImage}
-                  className="flex-grow md:flex-grow-0 h-12 px-4 border-2 border-primary text-primary font-label-caps text-label-caps uppercase rounded flex items-center justify-center gap-2 hover:bg-surface-container-low transition-colors">
-                    <span className="material-symbols-outlined" data-icon="image">image</span>
-                    Imagen
-                </button>
-            </div>
-        </section>
+
+                        {/* Email input inline (appears when user clicks "Enviar por email") */}
+                        {showEmailInput && (
+                          <div className="flex flex-col md:flex-row gap-2 flex-wrap w-full mb-2">
+                            <input
+                                                          type="email"
+                                                          placeholder="email@cliente.com"
+                                                          value={clientEmail}
+                                                          onChange={(e) => setClientEmail(e.target.value)}
+                                                          className="flex-1 h-12 px-4 bg-surface border-0 border-b-2 border-outline focus:border-primary focus:ring-0 font-body-md text-body-md text-on-background w-full transition-colors rounded-t outline-none"
+                                                          autoFocus
+                                                        />
+                            <button
+                              onClick={handleSendEmail}
+                              disabled={sendingEmail || !clientEmail.includes('@')}
+                              className="flex-grow md:flex-grow-0 h-12 px-4 bg-primary text-on-primary font-label-caps text-label-caps uppercase rounded flex items-center justify-center gap-2 shadow-sm hover:bg-primary-container transition-colors opacity-50"
+                            >
+                              {sendingEmail ? (
+                                <>
+                                  <span className="material-symbols-outlined animate-spin" data-icon="sync">sync</span>
+                                  Enviando...
+                                </>
+                              ) : (
+                                <>
+                                  <span className="material-symbols-outlined" data-icon="send">send</span>
+                                  Enviar
+                                </>
+                              )}
+                            </button>
+                            <button
+                              onClick={() => { setShowEmailInput(false); setClientEmail('') }}
+                              className="h-12 px-4 border-2 border-outline text-on-surface-variant font-label-caps text-label-caps uppercase rounded flex items-center justify-center gap-2 hover:bg-surface-container-low transition-colors"
+                            >
+                              Cancelar
+                            </button>
+                          </div>
+                        )}
+
+                        {/* Action Buttons Area */}
+                        <div className="flex flex-col md:flex-row gap-4 flex-wrap bg-surface py-4 border-t border-outline-variant sticky bottom-0 z-40 lg:static">
+                            <button
+                              onClick={() => { setShowEmailInput(true); setClientEmail('') }}
+                              className="flex-grow md:flex-grow-0 h-12 px-gutter bg-secondary text-on-secondary font-label-caps text-label-caps uppercase rounded flex items-center justify-center gap-2 shadow-sm hover:bg-secondary-container transition-colors">
+                                <span className="material-symbols-outlined" data-icon="mail">mail</span>
+                                Enviar por email
+                            </button>
+                            <button
+                              onClick={handleWhatsApp}
+                              className="flex-grow md:flex-grow-0 h-12 px-gutter bg-primary text-on-primary font-label-caps text-label-caps uppercase rounded flex items-center justify-center gap-2 shadow-sm hover:bg-primary-container transition-colors">
+                                <span className="material-symbols-outlined" data-icon="send" data-weight="fill">send</span>
+                                Compartir por WhatsApp
+                            </button>
+                            <button
+                              onClick={handleExportPDF}
+                              className="flex-grow md:flex-grow-0 h-12 px-4 border-2 border-primary text-primary font-label-caps text-label-caps uppercase rounded flex items-center justify-center gap-2 hover:bg-surface-container-low transition-colors">
+                                <span className="material-symbols-outlined" data-icon="download">download</span>
+                                PDF
+                            </button>
+                            <button
+                              onClick={handleExportImage}
+                              className="flex-grow md:flex-grow-0 h-12 px-4 border-2 border-primary text-primary font-label-caps text-label-caps uppercase rounded flex items-center justify-center gap-2 hover:bg-surface-container-low transition-colors">
+                                <span className="material-symbols-outlined" data-icon="image">image</span>
+                                Imagen
+                            </button>
+                        </div>
+                    </section>
 
         {/* Right Column: Sticky Preview */}
         <aside className="w-full lg:w-5/12 lg:sticky top-[100px]">
@@ -391,11 +476,11 @@ export default function ReceiptGenerator({ isPro }: { isPro: boolean }) {
                 </div>
 
                 {/* Watermark (Exact free HTML) */}
-                {!isPro && (
-                  <div className="mt-8 text-center">
-                      <span className="font-body-sm text-body-sm text-outline italic">Generado con trazzoapp.online</span>
-                  </div>
-                )}
+                                {!isPro && (
+                                  <div className="mt-8 text-center">
+                                      <span className="font-body-sm text-body-sm text-outline italic">Generado gratis con trazzoapp.online</span>
+                                  </div>
+                                )}
             </div>
         </aside>
     </div>
