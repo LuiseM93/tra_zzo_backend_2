@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { oficios } from '@/lib/data/oficios'
 import ReceiptGenerator from '@/components/ReceiptGenerator'
 import Link from 'next/link'
+import ProUpsellSection from '@/components/ProUpsellSection'
 
 export async function generateStaticParams() {
   return oficios.map((oficio) => ({
@@ -77,6 +78,9 @@ export default async function OficioPage({ params }: { params: Promise<{ slug: s
 
             {/* Generador de Recibos */}
             <ReceiptGenerator isPro={false} />
+
+            {/* Pro Upsell para usuarios gratis */}
+            <ProUpsellSection context="oficio" />
 
             {/* Información Específica del Oficio */}
             <section className="mt-margin-desktop bg-surface-container-low border border-outline-variant rounded-xl p-margin-desktop shadow-sm">
