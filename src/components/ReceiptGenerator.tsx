@@ -374,27 +374,41 @@ export default function ReceiptGenerator({ isPro }: { isPro: boolean }) {
                                                   </div>
                                                 )}
 
-                                                {/* Pro Upsell inside email input */}
-                                                {showEmailInput && !isPro && (
-                                                  <div className="flex flex-col md:flex-row gap-3 w-full mb-2 p-3 bg-primary-container border border-primary rounded-xl">
-                                                    <div className="flex items-center gap-2 text-primary">
-                                                      <span className="material-symbols-outlined" data-icon="diamond">diamond</span>
-                                                      <span className="font-label-caps text-label-caps uppercase text-primary">Pro $99 · pago único</span>
-                                                    </div>
-                                                    <ul className="flex flex-col md:flex-row gap-2 md:gap-4 text-sm text-on-primary-container">
-                                                      <li className="flex items-center gap-1"><span className="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span> Sin marca de agua</li>
-                                                      <li className="flex items-center gap-1"><span className="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span> Tu logo en el recibo</li>
-                                                      <li className="flex items-center gap-1"><span className="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span> Historial ilimitado</li>
-                                                    </ul>
-                                                    <button
-                                                      onClick={() => window.location.href = '/auth?plan=pro'}
-                                                      className="mt-1 md:mt-0 md:ml-auto h-10 px-4 bg-primary text-on-primary font-label-caps text-label-caps uppercase rounded flex items-center justify-center gap-1 hover:bg-primary-container transition-colors whitespace-nowrap"
-                                                    >
-                                                      <span className="material-symbols-outlined" data-icon="upgrade">upgrade</span>
-                                                      Actualizar a Pro
-                                                    </button>
-                                                  </div>
-                                                )}
+                                                {/* Pro Upsell inside email input - Design System compliant */}
+                                                                                                {showEmailInput && !isPro && (
+                                                                                                  <div className="flex flex-col md:flex-row items-center md:items-start gap-4 p-4 bg-secondary-container border border-outline">
+                                                                                                  {/* Pro Badge */}
+                                                                                                  <div className="flex flex-col items-center gap-1 px-3 py-2 bg-secondary text-on-secondary font-label-caps text-label-caps">
+                                                                                                    <span>PRO $99</span>
+                                                                                                    <span className="text-[10px] leading-none opacity-80">PAGO ÚNICO</span>
+                                                                                                  </div>
+
+                                                                                                  {/* Features */}
+                                                                                                  <div className="flex-1 flex items-center md:flex-row flex-wrap gap-4 text-on-surface-variant font-body-sm">
+                                                                                                    {[
+                                                                                                      'Sin marca de agua',
+                                                                                                      'Tu logo en el recibo',
+                                                                                                      'Historial ilimitado'
+                                                                                                    ].map((text, i) => (
+                                                                                                      <div key={i} className="flex items-center gap-2">
+                                                                                                        <div className="w-5 h-5 flex items-center justify-center bg-secondary text-on-secondary">
+                                                                                                          <span className="material-symbols-outlined text-[16px]">check</span>
+                                                                                                        </div>
+                                                                                                        <span className="whitespace-nowrap">{text}</span>
+                                                                                                      </div>
+                                                                                                    ))}
+                                                                                                  </div>
+
+                                                                                                  {/* CTA - Secondary (indigo) for max contrast */}
+                                                                                                  <button
+                                                                                                    onClick={() => window.location.href = '/auth?plan=pro'}
+                                                                                                    className="h-12 px-6 bg-secondary text-on-secondary font-label-caps text-label-caps uppercase rounded-none transition-colors hover:opacity-90 whitespace-nowrap"
+                                                                                                  >
+                                                                                                    <span className="material-symbols-outlined align-middle mr-1">arrow_upward</span>
+                                                                                                    ACTUALIZAR A PRO
+                                                                                                  </button>
+                                                                                                </div>
+                                                                                              )}
 
                                                 {/* Action Buttons Area */}
                         <div className="flex flex-col md:flex-row gap-4 flex-wrap bg-surface py-4 border-t border-outline-variant sticky bottom-0 z-40 lg:static">
