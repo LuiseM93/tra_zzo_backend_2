@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { recursos } from '@/lib/data/recursos'
 import Link from 'next/link'
+import ProUpsellSection from '@/components/ProUpsellSection'
 
 export async function generateStaticParams() {
   return recursos.map((recurso) => ({
@@ -103,6 +104,10 @@ export default async function RecursoPage({ params }: { params: Promise<{ slug: 
                 </button>
               </Link>
             </section>
+
+            {/* Pro Upsell para usuarios gratis */}
+            <ProUpsellSection context="recurso" />
+
         </main>
 
         <footer className="bg-surface border-t border-outline-variant px-margin-mobile md:px-margin-desktop py-8 w-full mt-margin-desktop">

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { tareas } from '@/lib/data/tareas'
 import { oficios } from '@/lib/data/oficios'
 import Link from 'next/link'
+import ProUpsellSection from '@/components/ProUpsellSection'
 
 export async function generateStaticParams() {
   return tareas.map((tarea) => ({
@@ -106,6 +107,9 @@ export default async function TareaPage({ params }: { params: Promise<{ slug: st
                 ))}
               </ul>
             </section>
+
+            {/* Pro Upsell después del último tip */}
+            <ProUpsellSection context="tarea" />
 
             <section className="mt-8 text-center bg-primary-container text-on-primary-container p-8 rounded-xl">
               <h3 className="font-headline-lg-mobile text-headline-lg-mobile mb-4">¿Listo para enviar tu presupuesto?</h3>

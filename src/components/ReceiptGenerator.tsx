@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import html2canvas from 'html2canvas'
 import { jsPDF } from 'jspdf'
+import ProUpsellSection from './ProUpsellSection'
 
 type Item = {
   id: string
@@ -309,6 +310,9 @@ export default function ReceiptGenerator({ isPro }: { isPro: boolean }) {
                     Imagen
                 </button>
             </div>
+
+            {/* Pro Upsell (solo usuarios gratis) */}
+            {!isPro && <ProUpsellSection context="oficio" />}
         </section>
 
         {/* Right Column: Sticky Preview */}
