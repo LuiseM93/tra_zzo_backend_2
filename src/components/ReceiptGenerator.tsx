@@ -27,8 +27,10 @@ export default function ReceiptGenerator({ isPro }: { isPro: boolean }) {
   // Suppress hydration warning for date
     const [currentDate, setCurrentDate] = useState('')
     const [toast, setToast] = useState<string | null>(null)
-    const [clientEmail, setClientEmail] = useState('')
-    const [sendingEmail, setSendingEmail] = useState(false)
+      const [clientEmail, setClientEmail] = useState('')
+      const [techEmail, setTechEmail] = useState('')
+      const [sendTips, setSendTips] = useState(true)
+      const [sendingEmail, setSendingEmail] = useState(false)
       const [showEmailInput, setShowEmailInput] = useState(false)
 
       useEffect(() => {
@@ -160,35 +162,38 @@ export default function ReceiptGenerator({ isPro }: { isPro: boolean }) {
       }
 
     const handleSendEmail = async () => {
-      if (!clientEmail || !clientEmail.includes('@')) {
-        showToast('Email inválido')
-        return
-      }
-      setSendingEmail(true)
-      try {
-        const pdfBase64 = await generatePDFBase64()
-        const res = await fetch('/api/send-pdf', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            pdfBase64,
-            clientEmail,
-            clientName: clientName || 'Cliente'
-          })
-        })
-        const data = await res.json()
-        if (data.success) {
-          showToast('¡Enviado! Revisa tu bandeja de entrada.')
-          setClientEmail('')
-        } else {
-          showToast('Error: ' + data.error)
+          if (!clientEmail || !clientEmail.includes('@')) {
+            showToast('Email inválido')
+            return
+          }
+          setSendingEmail(true)
+          try {
+            const pdfBase64 = await generatePDFBase64()
+            const res = await fetch('/api/send-pdf', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                pdfBase64,
+                clientEmail,
+                clientName: clientName || 'Cliente',
+                techEmail,
+                sendTips
+              })
+            })
+            const data = await res.json()
+            if (data.success) {
+              showToast('¡Enviado! Revisa tu bandeja de entrada.')
+              setClientEmail('')
+              setTechEmail('')
+            } else {
+              showToast('Error: ' + data.error)
+            }
+          } catch {
+            showToast('Error de conexión')
+          } finally {
+            setSendingEmail(false)
+          }
         }
-      } catch {
-        showToast('Error de conexión')
-      } finally {
-        setSendingEmail(false)
-      }
-    }
 
     return (
     <div className="flex flex-col lg:flex-row gap-margin-desktop items-start">
@@ -337,80 +342,109 @@ export default function ReceiptGenerator({ isPro }: { isPro: boolean }) {
 
             {/* Action Buttons Area */}
 
-                        {/* Email input inline (appears when user clicks "Enviar por email") */}
-                                                {showEmailInput && (
-                                                  <div className="flex flex-col md:flex-row gap-2 flex-wrap w-full mb-2">
-                                                    <input
-                                                                                  type="email"
-                                                                                  placeholder="email@cliente.com"
-                                                                                  value={clientEmail}
-                                                                                  onChange={(e) => setClientEmail(e.target.value)}
-                                                                                  className="flex-1 h-12 px-4 bg-surface border-0 border-b-2 border-outline focus:border-primary focus:ring-0 font-body-md text-body-md text-on-background w-full transition-colors rounded-t outline-none"
-                                                                                  autoFocus
-                                                                                />
-                                                    <button
-                                                      onClick={handleSendEmail}
-                                                      disabled={sendingEmail || !clientEmail.includes('@')}
-                                                      className="flex-grow md:flex-grow-0 h-12 px-4 bg-primary text-on-primary font-label-caps text-label-caps uppercase rounded flex items-center justify-center gap-2 shadow-sm hover:bg-primary-container transition-colors opacity-50"
-                                                    >
-                                                      {sendingEmail ? (
-                                                        <>
-                                                          <span className="material-symbols-outlined animate-spin" data-icon="sync">sync</span>
-                                                          Enviando...
-                                                        </>
-                                                      ) : (
-                                                        <>
-                                                          <span className="material-symbols-outlined" data-icon="send">send</span>
-                                                          Enviar
-                                                        </>
-                                                      )}
-                                                    </button>
-                                                    <button
-                                                      onClick={() => { setShowEmailInput(false); setClientEmail('') }}
-                                                      className="h-12 px-4 border-2 border-outline text-on-surface-variant font-label-caps text-label-caps uppercase rounded flex items-center justify-center gap-2 hover:bg-surface-container-low transition-colors"
-                                                    >
-                                                      Cancelar
-                                                    </button>
-                                                  </div>
-                                                )}
+                                    {/* Email input inline (appears when user clicks "Enviar por email") */}
+                                                            {showEmailInput && (
+                                                              <div className="flex flex-col md:flex-row gap-2 flex-wrap w-full mb-2">
+                                                                <input
+                                                                                              type="email"
+                                                                                              placeholder="email@cliente.com"
+                                                                                              value={clientEmail}
+                                                                                              onChange={(e) => setClientEmail(e.target.value)}
+                                                                                              className="flex-1 h-12 px-4 bg-surface border-0 border-b-2 border-outline focus:border-primary focus:ring-0 font-body-md text-body-md text-on-background w-full transition-colors rounded-t outline-none"
+                                                                                              autoFocus
+                                                                                            />
+                                                                <input
+                                                                                                                                                              type="email"
+                                                                                                                                                              placeholder="tu@email.com (para tips)"
+                                                                                                                                                              value={techEmail}
+                                                                                                                                                              onChange={(e) => setTechEmail(e.target.value)}
+                                                                                                                                                              className="flex-1 h-12 px-4 bg-surface border-0 border-b-2 border-outline focus:border-primary focus:ring-0 font-body-md text-body-md text-on-background w-full transition-colors rounded-none outline-none"
+                                                                                                                                                            />
+                                                                <button
+                                                                  onClick={handleSendEmail}
+                                                                  disabled={sendingEmail || !clientEmail.includes('@')}
+                                                                  className="flex-grow md:flex-grow-0 h-12 px-4 bg-primary text-on-primary font-label-caps text-label-caps uppercase rounded-none transition-colors hover:opacity-90 flex items-center justify-center gap-2"
+                                                                >
+                                                                  {sendingEmail ? (
+                                                                    <>
+                                                                      <span className="material-symbols-outlined animate-spin" data-icon="sync">sync</span>
+                                                                      Enviando...
+                                                                    </>
+                                                                  ) : (
+                                                                    <>
+                                                                      <span className="material-symbols-outlined" data-icon="send">send</span>
+                                                                      Enviar
+                                                                    </>
+                                                                  )}
+                                                                </button>
+                                                                <button
+                                                                  onClick={() => { setShowEmailInput(false); setClientEmail(''); setTechEmail('') }}
+                                                                  className="h-12 px-4 border-2 border-outline text-on-surface-variant font-label-caps text-label-caps uppercase rounded-none hover:bg-surface-container transition-colors"
+                                                                >
+                                                                  Cancelar
+                                                                </button>
+                                                              </div>
+                                                            )}
 
-                                                {/* Pro Upsell inside email input - Design System compliant (Monochrome) */}
-                                                                                                {showEmailInput && !isPro && (
-                                                                                                  <div className="flex flex-col md:flex-row items-center md:items-start gap-4 p-4 bg-surface-container border border-outline-variant">
-                                                                                                    {/* Pro Badge */}
-                                                                                                    <div className="flex flex-col items-center gap-1 px-3 py-2 bg-primary text-on-primary font-label-caps text-label-caps">
-                                                                                                      <span>PRO $99</span>
-                                                                                                      <span className="text-[10px] leading-none opacity-80">PAGO ÚNICO</span>
-                                                                                                    </div>
+                                                            {/* Pro Upsell inside email input - Design System compliant (Monochrome) */}
+                                                            {showEmailInput && !isPro && (
+                                                              <div className="flex flex-col md:flex-row items-center md:items-start gap-4 p-4 bg-surface-container border border-outline-variant">
+                                                                {/* Pro Badge */}
+                                                                <div className="flex flex-col items-center gap-1 px-3 py-2 bg-primary text-on-primary font-label-caps text-label-caps">
+                                                                  <span>PRO $99</span>
+                                                                  <span className="text-[10px] leading-none opacity-80">PAGO ÚNICO</span>
+                                                                </div>
 
-                                                                                                    {/* Features */}
-                                                                                                    <div className="flex-1 flex items-center md:flex-row flex-wrap gap-4 text-on-surface-variant font-body-sm">
-                                                                                                      {[
-                                                                                                        'Sin marca de agua',
-                                                                                                        'Tu logo en el recibo',
-                                                                                                        'Historial ilimitado'
-                                                                                                      ].map((text, i) => (
-                                                                                                        <div key={i} className="flex items-center gap-2">
-                                                                                                          <div className="w-5 h-5 flex items-center justify-center bg-primary text-on-primary">
-                                                                                                            <span className="material-symbols-outlined text-[16px]">check</span>
-                                                                                                          </div>
-                                                                                                          <span className="whitespace-nowrap">{text}</span>
-                                                                                                        </div>
-                                                                                                      ))}
-                                                                                                    </div>
+                                                                {/* Features */}
+                                                                <div className="flex-1 flex items-center md:flex-row flex-wrap gap-4 text-on-surface-variant font-body-sm">
+                                                                  {[
+                                                                    'Sin marca de agua',
+                                                                    'Tu logo en el recibo',
+                                                                    'Historial ilimitado'
+                                                                  ].map((text, i) => (
+                                                                    <div key={i} className="flex items-center gap-2">
+                                                                      <div className="w-5 h-5 flex items-center justify-center bg-primary text-on-primary">
+                                                                        <span className="material-symbols-outlined text-[16px]">check</span>
+                                                                      </div>
+                                                                      <span className="whitespace-nowrap">{text}</span>
+                                                                    </div>
+                                                                  ))}
+                                                                </div>
 
-                                                                                                    {/* CTA - Primary (black) for max contrast */}
-                                                                                                    <button
-                                                                                                      onClick={() => window.location.href = '/auth?plan=pro'}
-                                                                                                      className="h-12 px-6 bg-primary text-on-primary font-label-caps text-label-caps uppercase rounded-none transition-colors hover:opacity-90 whitespace-nowrap"
-                                                                                                    >
-                                                                                                      <span className="material-symbols-outlined align-middle mr-1">arrow_upward</span>
-                                                                                                      ACTUALIZAR A PRO
-                                                                                                    </button>
-                                                                                                  </div>
-                                                                                                )}
+                                                                {/* CTA - Primary (black) for max contrast */}
+                                                                <button
+                                                                  onClick={() => window.location.href = '/auth?plan=pro'}
+                                                                  className="h-12 px-6 bg-primary text-on-primary font-label-caps text-label-caps uppercase rounded-none transition-colors hover:opacity-90 whitespace-nowrap"
+                                                                >
+                                                                  <span className="material-symbols-outlined align-middle mr-1">arrow_upward</span>
+                                                                  ACTUALIZAR A PRO
+                                                                </button>
+                                                              </div>
+                                                            )}
 
-                                                {/* Action Buttons Area */}
+                                                            {/* Lead capture: technician email + tips opt-in */}
+                                                            {showEmailInput && !isPro && (
+                                                              <div className="flex flex-col md:flex-row gap-2 flex-wrap w-full mb-2 p-3 bg-surface-container-highest border border-outline-variant rounded-none">
+                                                                <label className="flex items-center gap-2 cursor-pointer">
+                                                                  <input
+                                                                    type="checkbox"
+                                                                    checked={sendTips}
+                                                                    onChange={(e) => setSendTips(e.target.checked)}
+                                                                    className="w-4 h-4 accent-primary rounded-none"
+                                                                  />
+                                                                  <span className="font-body-sm text-on-surface-variant">Enviarme tips para cobrar mejor</span>
+                                                                </label>
+                                                                <input
+                                                                                                                                  type="email"
+                                                                                                                                  placeholder="tu@email.com (para recibir tips)"
+                                                                                                                                  value={techEmail}
+                                                                                                                                  onChange={(e) => setTechEmail(e.target.value)}
+                                                                                                                                  className="flex-1 h-10 px-4 bg-surface border-0 border-b-2 border-outline focus:border-primary focus:ring-0 font-body-md text-body-md text-on-background w-full transition-colors rounded-none outline-none"
+                                                                                                                                />
+                                                              </div>
+                                                            )}
+
+                                                            {/* Action Buttons Area */}
                                                                                                                         <div className="flex flex-col md:flex-row gap-4 flex-wrap bg-surface py-4 border-t border-outline-variant sticky bottom-0 z-40 lg:static">
                                                                                                                             <button
                                                                                                                               onClick={() => { setShowEmailInput(true); setClientEmail('') }}
