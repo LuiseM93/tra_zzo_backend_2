@@ -3,7 +3,7 @@ import { Resend } from 'resend'
 
 export async function POST(req: NextRequest) {
   try {
-    const { pdfBase64, clientEmail, clientName, subject } = await req.json()
+    const { pdfBase64, clientEmail, clientName, techEmail, sendTips } = await req.json()
 
     if (!pdfBase64 || !clientEmail) {
       return NextResponse.json(
@@ -22,11 +22,7 @@ export async function POST(req: NextRequest) {
 
     const resend = new Resend(apiKey)
 
-    const base64Data = pdfBase64.includes('base64,')
-      ? pdfBase64.split('base64,')[1]
-      : pdfBase64
-
-    const emailSubject = subject || `Recibo para ${clientName || 'cliente'}`
+    const emailSubject = `Recibo para ${clientName || 'cliente'}`
 
     const { data, error } = await resend.emails.send({
       from: `${process.env.FROM_NAME || 'Trazzo Recibo'} <${process.env.FROM_EMAIL || 'noreply@elantimetodo.com'}>`,
@@ -53,6 +49,25 @@ export async function POST(req: NextRequest) {
     if (error) {
       console.error('Resend error:', error)
       return NextResponse.json({ error: error.message }, { status: 500 })
+    }
+
+    // Capture lead for nurturing if techEmail provided and sendTips is true
+    if (techEmail && sendTips && techEmail.includes('@')) {
+      try {
+        const leadRes = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/capture-lead`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: techEmail,
+            name: clientName || 'Cliente',
+            source: 'receipt_email_upsell'
+          })
+        })
+        const leadData = await leadRes.json()
+        console.log('Lead captured:', leadData)
+      } catch (leadErr) {
+        console.error('Lead capture failed (non-blocking):', leadErr)
+      }
     }
 
     return NextResponse.json({ success: true, id: data?.id })

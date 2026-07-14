@@ -353,13 +353,6 @@ export default function ReceiptGenerator({ isPro }: { isPro: boolean }) {
                                                                                               className="flex-1 h-12 px-4 bg-surface border-0 border-b-2 border-outline focus:border-primary focus:ring-0 font-body-md text-body-md text-on-background w-full transition-colors rounded-t outline-none"
                                                                                               autoFocus
                                                                                             />
-                                                                <input
-                                                                                                                                                              type="email"
-                                                                                                                                                              placeholder="tu@email.com (para tips)"
-                                                                                                                                                              value={techEmail}
-                                                                                                                                                              onChange={(e) => setTechEmail(e.target.value)}
-                                                                                                                                                              className="flex-1 h-12 px-4 bg-surface border-0 border-b-2 border-outline focus:border-primary focus:ring-0 font-body-md text-body-md text-on-background w-full transition-colors rounded-none outline-none"
-                                                                                                                                                            />
                                                                 <button
                                                                   onClick={handleSendEmail}
                                                                   disabled={sendingEmail || !clientEmail.includes('@')}
@@ -434,13 +427,15 @@ export default function ReceiptGenerator({ isPro }: { isPro: boolean }) {
                                                                   />
                                                                   <span className="font-body-sm text-on-surface-variant">Enviarme tips para cobrar mejor</span>
                                                                 </label>
-                                                                <input
+                                                                {sendTips && (
+                                                                  <input
                                                                                                                                   type="email"
                                                                                                                                   placeholder="tu@email.com (para recibir tips)"
                                                                                                                                   value={techEmail}
                                                                                                                                   onChange={(e) => setTechEmail(e.target.value)}
                                                                                                                                   className="flex-1 h-10 px-4 bg-surface border-0 border-b-2 border-outline focus:border-primary focus:ring-0 font-body-md text-body-md text-on-background w-full transition-colors rounded-none outline-none"
                                                                                                                                 />
+                                                                )}
                                                               </div>
                                                             )}
 
