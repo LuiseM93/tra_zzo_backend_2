@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { recursos } from '@/lib/data/recursos'
 import Link from 'next/link'
 import ProUpsellSection from '@/components/ProUpsellSection'
+import { ExitIntentPopup } from '@/components/ExitIntentPopup'
 
 export async function generateStaticParams() {
   return recursos.map((recurso) => ({
@@ -123,6 +124,8 @@ export default async function RecursoPage({ params }: { params: Promise<{ slug: 
             </div>
         </footer>
       </div>
-    </>
+    
+        <ExitIntentPopup />
+      </>
   )
 }

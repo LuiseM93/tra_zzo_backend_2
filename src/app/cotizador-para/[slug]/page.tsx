@@ -4,6 +4,7 @@ import { oficios } from '@/lib/data/oficios'
 import ReceiptGenerator from '@/components/ReceiptGenerator'
 import Link from 'next/link'
 import ProUpsellSection from '@/components/ProUpsellSection'
+import { ExitIntentPopup } from '@/components/ExitIntentPopup'
 
 export async function generateStaticParams() {
   return oficios.map((oficio) => ({
@@ -149,6 +150,8 @@ export default async function OficioPage({ params }: { params: Promise<{ slug: s
             </div>
         </footer>
       </div>
-    </>
+    
+        <ExitIntentPopup />
+      </>
   )
 }

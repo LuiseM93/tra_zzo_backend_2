@@ -4,6 +4,7 @@ import { oficios } from '@/lib/data/oficios'
 import { tareas } from '@/lib/data/tareas'
 import Link from 'next/link'
 import ProUpsellSection from '@/components/ProUpsellSection'
+import { ExitIntentPopup } from '@/components/ExitIntentPopup'
 
 export async function generateStaticParams() {
   return tareas.map((tarea) => ({
@@ -136,6 +137,8 @@ export default async function TareaPage({ params }: { params: Promise<{ slug: st
             </div>
         </footer>
       </div>
-    </>
+    
+        <ExitIntentPopup />
+      </>
   )
 }
