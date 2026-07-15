@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
 
-    // Enviar email inmediato con Guía rápida (Lead Magnet inline)
+    // Enviar email inmediato con Guía rápida (Lead Magnet inline) - Brand Trazzo
     const resendApiKey = process.env.RESEND_API_KEY
     if (resendApiKey) {
       try {
@@ -51,34 +51,30 @@ export async function POST(req: NextRequest) {
         await resend.emails.send({
           from: 'Trazzo Recibo <noreply@elantimetodo.com>',
           to: [email],
-          subject: '✅ Tu guía rápida: 3 claves para cobrar mejor',
+          subject: 'Tu guía rápida: 3 claves para cobrar mejor',
           html: `
-            <div style="font-family: system-ui, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-              <h2 style="color: #6b21a8;">Guía rápida: 3 claves para cobrar mejor desde hoy</h2>
-              <p>Hola ${name || 'profesional'},</p>
-              <p>Gracias por confiar en Trazzo Recibo. Aquí tienes tu guía inmediata:</p>
+            <div style="font-family: Inter, system-ui, sans-serif; max-width: 600px; margin: 0 auto; padding: 32px; background: #fbf8fc; border: 1px solid #e4e1e6;">
+              <h2 style="font-family: 'Hanken Grotesk', Inter, sans-serif; font-size: 28px; font-weight: 700; line-height: 36px; color: #1b1b1e; margin: 0 0 16px; letter-spacing: -0.01em;">Guía rápida: 3 claves para cobrar mejor desde hoy</h2>
+              <p style="font-size: 16px; line-height: 24px; color: #4c4546; margin: 0 0 24px;">Hola ${name || 'profesional'},</p>
+              <p style="font-size: 16px; line-height: 24px; color: #4c4546; margin: 0 0 24px;">Gracias por confiar en Trazzo Recibo. Aquí tienes tu guía inmediata:</p>
               
-              <ol style="line-height: 2;">
-                <li><strong>Puntualidad = dinero:</strong> Ofrece $20 descuento si llegas antes de las 2pm. Los técnicos puntuales cobran 40% más.</li>
-                <li><strong>Seguimiento 24h:</strong> Un email "¿Todo funcionando bien?" al día siguiente genera 60% más recomendaciones.</li>
-                <li><strong>Presentación Pro:</strong> Recibos sin "Generado gratis" transmiten confianza y justifican tickets altos.</li>
+              <ol style="margin: 0 0 32px; padding-left: 24px; line-height: 2.4;">
+                <li style="font-size: 16px; line-height: 24px; color: #1b1b1e; margin-bottom: 12px;"><strong style="font-weight: 600;">Puntualidad = dinero:</strong> Ofrece $20 descuento si llegas antes de las 2pm. Los técnicos puntuales cobran 40% más.</li>
+                <li style="font-size: 16px; line-height: 24px; color: #1b1b1e; margin-bottom: 12px;"><strong style="font-weight: 600;">Seguimiento 24h:</strong> Un email "¿Todo funcionando bien?" al día siguiente genera 60% más recomendaciones.</li>
+                <li style="font-size: 16px; line-height: 24px; color: #1b1b1e;"><strong style="font-weight: 600;">Presentación Pro:</strong> Recibos sin "Generado gratis" transmiten confianza y justifican tickets altos.</li>
               </ol>
 
-              <hr style="margin: 24px 0; border-color: #e5e7eb;">
+              <hr style="margin: 32px 0; border: none; border-top: 1px solid #e4e1e6;">
               
-              <p style="color: #6b7280; font-size: 14px;">
-                ¿Quieres automatizar esto y quitar la marca de agua de tus recibos?
-              </p>
-              <p style="text-align: center; margin: 24px 0;">
-                <a href="https://trazzoapp.online/pro" style="background: #6b21a8; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600;">
-                  Ver Pro $99 →
+              <p style="font-size: 14px; line-height: 20px; color: #4c4546; margin: 0 0 24px;">¿Quieres automatizar esto y quitar la marca de agua de tus recibos?</p>
+              <p style="text-align: center; margin: 0 0 32px;">
+                <a href="https://trazzoapp.online/pro" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; background: #000000; color: #ffffff; padding: 14px 28px; border-radius: 0; text-decoration: none; display: inline-block; border: 1px solid #000000;">
+                  Ver Pro $99
                 </a>
               </p>
 
-              <hr style="margin: 24px 0; border-color: #e5e7eb;">
-              <p style="color: #9ca3af; font-size: 12px;">
-                Si no quieres más tips, responde "stop" a este email.
-              </p>
+              <hr style="margin: 32px 0; border: none; border-top: 1px solid #e4e1e6;">
+              <p style="font-size: 12px; line-height: 16px; color: #7e7576; margin: 0;">Si no quieres más tips, responde "stop" a este email.</p>
             </div>
           `,
           tags: [
