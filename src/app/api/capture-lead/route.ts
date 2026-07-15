@@ -50,6 +50,9 @@ export async function POST(req: NextRequest) {
         const resend = new Resend(resendApiKey)
         await resend.emails.send({
           from: 'Trazzo Recibo <noreply@elantimetodo.com>',
+          headers: {
+            'List-Unsubscribe': `<mailto:unsub@elantimetodo.com?subject=unsubscribe>, <https://trazzoapp.online/api/unsub?email=${encodeURIComponent(email)}>`
+          },
           to: [email],
           subject: 'Tu guía rápida: 3 claves para cobrar mejor',
           html: `

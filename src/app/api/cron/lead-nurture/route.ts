@@ -338,6 +338,9 @@ export async function GET(req: NextRequest) {
         try {
           await resend.emails.send({
             from: 'Trazzo Recibo <noreply@elantimetodo.com>',
+            headers: {
+              'List-Unsubscribe': `<mailto:unsub@elantimetodo.com?subject=unsubscribe>, <https://trazzoapp.online/api/unsub?email=${encodeURIComponent(lead.email)}>`
+            },
             to: [lead.email],
             subject: sequence.subject,
             html: sequence.html,
