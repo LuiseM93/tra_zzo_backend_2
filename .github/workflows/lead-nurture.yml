@@ -9,4 +9,4 @@ jobs:
       - name: Trigger lead nurture
         env:
           CRON_SECRET: ${{ secrets.CRON_SECRET }}
-        run: curl -H "Authorization: Bearer $CRON_SECRET" https://trazzoapp.online/api/cron/lead-nurture
+        run: 'curl -H "Authorization: Bearer $CRON_SECRET" https://trazzoapp.online/api/cron/lead-nurture'
