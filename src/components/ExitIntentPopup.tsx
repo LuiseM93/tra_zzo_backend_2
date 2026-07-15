@@ -2,14 +2,68 @@
 
 import { useState, useEffect } from 'react'
 
+type Bucket = 'instalaciones' | 'reparaciones' | 'construccion'
+
+function detectBucket(): Bucket {
+  if (typeof window === 'undefined') return 'instalaciones'
+  
+  const slug = window.location.pathname.split('/').pop() || ''
+  const instalaciones = ['electricistas', 'plomeros', 'gasistas', 'hvac', 'solares', 'calefaccion', 'aire-acondicionado', 'instalacion', 'calentador', 'electricidad', 'gas', 'climatizacion']
+  const reparaciones = ['cerrajeros', 'vidrieros', 'electrodomesticos', 'fugas', 'reparacion', 'reparaciones', 'fuga-agua', 'cerrajeria', 'vidrio']
+  const construccion = ['albaniles', 'carpinteros', 'pintores', 'soldadores', 'techos', 'impermeabilizacion', 'yeso', 'drywall', 'construccion', 'obra', 'mamposteria', 'herreria', 'aluminio', 'pisos', 'azulejos', 'revestimientos']
+  
+  if (instalaciones.some(s => slug.includes(s))) return 'instalaciones'
+  if (reparaciones.some(s => slug.includes(s))) return 'reparaciones'
+  if (construccion.some(s => slug.includes(s))) return 'construccion'
+  return 'instalaciones'
+}
+
+const bucketLabels: Record<Bucket, { title: string; subtitle: string; ctaText: string; caseStudy: { name: string; oficio: string; result: string; quote: string } }> = {
+  instalaciones: {
+    title: 'Instala bien a la primera',
+    subtitle: 'Electricistas, plomeros, gas, HVAC, solares',
+    ctaText: 'Ver caso electricista +40%',
+    caseStudy: {
+      name: 'Roberto',
+      oficio: 'Electricista CDMX',
+      result: 'Ticket promedio: $1,200 → $1,680 (+40%)',
+      quote: '"El desglose automático hace el trabajo de vender. El cliente ve materiales + mano de obra y no regatea."'
+    }
+  },
+  reparaciones: {
+    title: 'Repara rápido, cobra justo',
+    subtitle: 'Cerrajeros, vidrios, electrodomésticos, fugas',
+    ctaText: 'Ver caso cerrajero 80% cierra',
+    caseStudy: {
+      name: 'Miguel',
+      oficio: 'Cerrajero Guadalajara',
+      result: 'Cierre sin regateo: 50% → 80%',
+      quote: '"Antes me pedían descuento siempre. Con el recibo Pro y validez 7 días, aceptan sin pensarlo."'
+    }
+  },
+  construccion: {
+    title: 'Obra limpia, precio claro',
+    subtitle: 'Albañiles, carpinteros, pintores, techos, impermeabilización',
+    ctaText: 'Ver caso carpintero +35%',
+    caseStudy: {
+      name: 'Carlos',
+      oficio: 'Carpintero Monterrey',
+      result: 'Ticket promedio: $3,500 → $4,725 (+35%)',
+      quote: '"Presentar 3 opciones (Básico/Estándar/Premium) cambió todo. El 60% elige Estándar y sube el ticket."'
+    }
+  }
+}
+
 export function ExitIntentPopup() {
   const [show, setShow] = useState(false)
   const [email, setEmail] = useState('')
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
 
+  const bucket = detectBucket()
+  const { title, subtitle, ctaText, caseStudy } = bucketLabels[bucket]
+
   useEffect(() => {
-    // Solo desktop: detectar intención de salida
     const handleMouseLeave = (e: MouseEvent) => {
       if (e.clientY <= 0 && !show && !submitted && !localStorage.getItem('exit-intent-shown')) {
         setShow(true)
@@ -17,7 +71,6 @@ export function ExitIntentPopup() {
       }
     }
 
-    // Mobile: scroll up detection
     let lastScrollY = window.scrollY
     const handleScroll = () => {
       const currentScrollY = window.scrollY
@@ -28,7 +81,6 @@ export function ExitIntentPopup() {
       lastScrollY = currentScrollY
     }
 
-    // Solo en páginas SEO (como-cotizar, cotizador-para, recursos)
     const isSeoPage = window.location.pathname.includes('/como-cotizar/') || 
                       window.location.pathname.includes('/cotizador-para/') || 
                       window.location.pathname.includes('/recursos/')
@@ -45,27 +97,27 @@ export function ExitIntentPopup() {
   }, [show, submitted])
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!email || submitting) return
+      e.preventDefault()
+      if (!email || submitting) return
     
-    setSubmitting(true)
-    try {
-      const res = await fetch('/api/capture-lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, name: '', source: 'exit_intent' })
-      })
-      const data = await res.json()
-      if (data.success) {
-        setSubmitted(true)
-        setShow(false)
+      setSubmitting(true)
+      try {
+        const res = await fetch('/api/capture-lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, name: '', source: 'exit_intent', bucket })
+        })
+        const data = await res.json()
+        if (data.success) {
+          setSubmitted(true)
+          setShow(false)
+        }
+      } catch (err) {
+        console.error('Exit intent capture failed:', err)
+      } finally {
+        setSubmitting(false)
       }
-    } catch (err) {
-      console.error('Exit intent capture failed:', err)
-    } finally {
-      setSubmitting(false)
     }
-  }
 
   if (!show || submitted) return null
 
@@ -100,7 +152,6 @@ export function ExitIntentPopup() {
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close button */}
         <button
           onClick={() => setShow(false)}
           style={{
@@ -120,7 +171,6 @@ export function ExitIntentPopup() {
           ×
         </button>
 
-        {/* Content */}
         <div style={{ textAlign: 'center' }}>
           <p style={{
             fontFamily: 'JetBrains Mono, monospace',
@@ -187,7 +237,6 @@ export function ExitIntentPopup() {
             </ul>
           </div>
 
-          {/* Form */}
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', textAlign: 'left' }}>
               <label
