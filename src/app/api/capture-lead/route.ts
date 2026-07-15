@@ -76,9 +76,7 @@ export async function POST(req: NextRequest) {
                 </a>
               </p>
 
-              <hr style="margin: 32px 0; border: none; border-top: 1px solid #e4e1e6;">
-              <p style="font-size: 12px; line-height: 16px; color: #7e7576; margin: 0;">Si no quieres más tips, responde "stop" a este email.</p>
-            </div>
+              </div>
           `,
           tags: [
             { name: 'feature', value: 'lead_welcome' },

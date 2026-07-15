@@ -30,10 +30,6 @@ const NURTURE_SEQUENCES = [
           </a>
         </p>
 
-        <hr style="margin: 32px 0; border: none; border-top: 1px solid #e4e1e6;">
-        <p style="font-size: 12px; line-height: 16px; color: #7e7576; margin: 0; font-family: 'JetBrains Mono', monospace;">
-          Si no quieres más tips, responde "stop" a este email.
-        </p>
       </div>
     `
   },
@@ -64,10 +60,6 @@ const NURTURE_SEQUENCES = [
           </a>
         </p>
 
-        <hr style="margin: 32px 0; border: none; border-top: 1px solid #e4e1e6;">
-        <p style="font-size: 12px; line-height: 16px; color: #7e7576; margin: 0; font-family: 'JetBrains Mono', monospace;">
-          Si no quieres más tips, responde "stop" a este email.
-        </p>
       </div>
     `
   },
@@ -107,10 +99,6 @@ const NURTURE_SEQUENCES = [
           </a>
         </p>
 
-        <hr style="margin: 32px 0; border: none; border-top: 1px solid #e4e1e6;">
-        <p style="font-size: 12px; line-height: 16px; color: #7e7576; margin: 0; font-family: 'JetBrains Mono', monospace;">
-          Si no quieres más tips, responde "stop" a este email.
-        </p>
       </div>
     `
   },
@@ -137,10 +125,6 @@ const NURTURE_SEQUENCES = [
           </a>
         </p>
 
-        <hr style="margin: 32px 0; border: none; border-top: 1px solid #e4e1e6;">
-        <p style="font-size: 12px; line-height: 16px; color: #7e7576; margin: 0; font-family: 'JetBrains Mono', monospace;">
-          Si no quieres más tips, responde "stop" a este email.
-        </p>
       </div>
     `
   },
@@ -171,10 +155,6 @@ const NURTURE_SEQUENCES = [
           ¿Prefieres seguir gratis? Sigues recibiendo tips semanales. Sin presión.
         </p>
 
-        <hr style="margin: 32px 0; border: none; border-top: 1px solid #e4e1e6;">
-        <p style="font-size: 12px; line-height: 16px; color: #7e7576; margin: 0; font-family: 'JetBrains Mono', monospace;">
-          Si no quieres más emails, responde "stop". Fue un gusto ayudarte.
-        </p>
       </div>
     `
   }
@@ -207,10 +187,6 @@ const BUCKET_DAY7_CONTENT: Record<string, { subject: string; html: string }> = {
           </a>
         </p>
 
-        <hr style="margin: 32px 0; border: none; border-top: 1px solid #e4e1e6;">
-        <p style="font-size: 12px; line-height: 16px; color: #7e7576; margin: 0; font-family: 'JetBrains Mono', monospace;">
-          Si no quieres más tips, responde "stop" a este email.
-        </p>
       </div>
     `
   },
@@ -239,10 +215,6 @@ const BUCKET_DAY7_CONTENT: Record<string, { subject: string; html: string }> = {
           </a>
         </p>
 
-        <hr style="margin: 32px 0; border: none; border-top: 1px solid #e4e1e6;">
-        <p style="font-size: 12px; line-height: 16px; color: #7e7576; margin: 0; font-family: 'JetBrains Mono', monospace;">
-          Si no quieres más tips, responde "stop" a este email.
-        </p>
       </div>
     `
   },
@@ -271,10 +243,6 @@ const BUCKET_DAY7_CONTENT: Record<string, { subject: string; html: string }> = {
           </a>
         </p>
 
-        <hr style="margin: 32px 0; border: none; border-top: 1px solid #e4e1e6;">
-        <p style="font-size: 12px; line-height: 16px; color: #7e7576; margin: 0; font-family: 'JetBrains Mono', monospace;">
-          Si no quieres más tips, responde "stop" a este email.
-        </p>
       </div>
     `
   }
