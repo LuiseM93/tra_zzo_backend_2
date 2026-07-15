@@ -1,13 +1,12 @@
 name: Lead Nurture Cron
 on:
   schedule:
-    - cron: '0 14 * * *'  # 9am Mexico City (14:00 UTC)
+    - cron: '0 14 * * *'
 jobs:
   nurture:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger lead nurture
         env:
-          CRON_SECRET: ${{ secrets.CRON_SECRET }}
-        run: |
-          curl -H "Authorization: Bearer $CRON_SECRET" https://trazzoapp.online/api/cron/lead-nurture
+          CRON_SECRET: ${CRON_SECRET}
+        run: curl -H "Authorization: Bearer $CRON_SECRET" https://trazzoapp.online/api/cron/lead-nurture
