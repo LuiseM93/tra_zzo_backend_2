@@ -1,6 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '10mb',
+    },
+  },
+}
+
 export async function POST(req: NextRequest) {
   try {
     const { pdfBase64, clientEmail, clientName, techEmail, sendTips } = await req.json()
