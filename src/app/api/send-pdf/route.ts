@@ -29,12 +29,21 @@ export async function POST(req: NextRequest) {
       to: [clientEmail],
       subject: emailSubject,
       html: `
-        <div style="font-family: system-ui, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #6b21a8;">Tu recibo está listo</h2>
-          <p>Hola ${clientName || 'cliente'},</p>
-          <p>Adjunto encontrarás tu recibo en PDF.</p>
-          <p style="color: #666; font-size: 14px;">
+        <div style="font-family: Inter, system-ui, sans-serif; max-width: 600px; margin: 0 auto; padding: 32px; background: #fbf8fc; border: 1px solid #e4e1e6;">
+          <h2 style="font-family: 'Hanken Grotesk', Inter, sans-serif; font-size: 24px; font-weight: 700; line-height: 32px; color: #1b1b1e; margin: 0 0 16px; letter-spacing: -0.01em;">Tu recibo está listo</h2>
+          <p style="font-size: 16px; line-height: 24px; color: #1b1b1e; margin: 0 0 24px;">Hola ${clientName || 'cliente'},</p>
+          <p style="font-size: 16px; line-height: 24px; color: #1b1b1e; margin: 0 0 24px;">Adjunto encontrarás tu recibo en PDF.</p>
+
+          <hr style="margin: 32px 0; border: none; border-top: 1px solid #e4e1e6;">
+
+          <p style="font-size: 14px; line-height: 20px; color: #4c4546; margin: 0 0 24px;">
             Enviado desde <strong>Trazzo Recibo</strong> — Recibos profesionales en segundos.
+          </p>
+
+          <hr style="margin: 32px 0; border: none; border-top: 1px solid #e4e1e6;">
+
+          <p style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; color: #7e7576; margin: 0; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;">
+            ¿Necesitas recibos con tu logo y sin marca de agua?
           </p>
         </div>
       `,
