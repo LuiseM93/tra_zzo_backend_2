@@ -32,6 +32,7 @@ export async function POST(req: NextRequest) {
         name: name || null,
         source,
         status: 'new',
+        nurture_day: 0,
         metadata: {}
       }, { onConflict: 'email' })
       .select()
