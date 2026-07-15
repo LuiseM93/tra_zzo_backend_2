@@ -73,7 +73,7 @@ export default function ReceiptGenerator({ isPro }: { isPro: boolean }) {
   // Export Functions
   const generateCanvas = async () => {
     if (!receiptRef.current) return null
-    return await html2canvas(receiptRef.current, { scale: 2, useCORS: true, backgroundColor: '#ffffff' })
+    return await html2canvas(receiptRef.current, { scale: 1.5, useCORS: true, backgroundColor: '#ffffff' })
   }
 
   const handleExportImage = async () => {
@@ -81,20 +81,20 @@ export default function ReceiptGenerator({ isPro }: { isPro: boolean }) {
     if (!canvas) return
     const link = document.createElement('a')
     link.download = `recibo-${clientName || 'cliente'}.png`
-    link.href = canvas.toDataURL('image/png')
+    link.href = canvas.toDataURL('image/jpeg', 0.85)
     link.click()
   }
 
   const handleExportPDF = async () => {
     const canvas = await generateCanvas()
     if (!canvas) return
-    const imgData = canvas.toDataURL('image/png')
+    const imgData = canvas.toDataURL('image/jpeg', 0.85)
     const pdf = new jsPDF({
       orientation: 'portrait',
       unit: 'px',
       format: [canvas.width, canvas.height]
     })
-    pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height)
+    pdf.addImage(imgData, 'JPEG', 0, 0, canvas.width, canvas.height)
     pdf.save(`recibo-${clientName || 'cliente'}.pdf`)
   }
 
@@ -136,7 +136,7 @@ export default function ReceiptGenerator({ isPro }: { isPro: boolean }) {
       // 1. Descargar la imagen automáticamente
       const link = document.createElement('a')
       link.download = fileName
-      link.href = canvas.toDataURL('image/png')
+      link.href = canvas.toDataURL('image/jpeg', 0.85)
       link.click()
 
       // 2. Abrir WhatsApp con texto precargado
@@ -151,13 +151,13 @@ export default function ReceiptGenerator({ isPro }: { isPro: boolean }) {
         const canvas = await generateCanvas()
         if (!canvas) return ''
     
-        const imgData = canvas.toDataURL('image/png')
+        const imgData = canvas.toDataURL('image/jpeg', 0.85)
         const pdf = new jsPDF({
           orientation: 'portrait',
           unit: 'px',
           format: [canvas.width, canvas.height]
         })
-        pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height)
+        pdf.addImage(imgData, 'JPEG', 0, 0, canvas.width, canvas.height)
         return pdf.output('datauristring')
       }
 
