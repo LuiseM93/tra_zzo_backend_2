@@ -2,19 +2,19 @@ import Link from 'next/link'
 
 export default function ProUpsellSection({ context }: { context?: 'oficio' | 'tarea' | 'recurso' }) {
   const contextMessages = {
-    oficio: {
-      title: 'Hazlo profesional: recibo con tu logo y sin marca de agua',
-      description: 'Trazzo Recibo Pro agrega tu logotipo y elimina la marca de agua. Pago único de $99 MXN.',
-    },
-    tarea: {
-      title: 'Entrega recibos que proyecten confianza',
-      description: 'Con Pro, tu recibo lleva el logo de tu negocio y llega sin marca de agua. Solo $99 MXN de por vida.',
-    },
-    recurso: {
-      title: 'Aplica lo aprendido con recibos profesionales',
-      description: 'Trazzo Pro agrega tu logo y elimina la marca de agua. Pago único de $99 MXN.',
+      oficio: {
+        title: 'Hazlo profesional: recibo con tu logo y sin marca de agua',
+        description: 'Trazzo Recibo Pro agrega tu logotipo y elimina la marca de agua. Pago único · Mientras exista el servicio.',
+      },
+      tarea: {
+        title: 'Entrega recibos que proyecten confianza',
+        description: 'Con Pro, tu recibo lleva el logo de tu negocio y llega sin marca de agua. Solo $99 MXN · Mientras exista el servicio.',
+      },
+      recurso: {
+        title: 'Aplica lo aprendido con recibos profesionales',
+        description: 'Trazzo Pro agrega tu logo y elimina la marca de agua. Pago único · Mientras exista el servicio.',
+      }
     }
-  }
 
   const msg = context ? contextMessages[context] : contextMessages.oficio
 

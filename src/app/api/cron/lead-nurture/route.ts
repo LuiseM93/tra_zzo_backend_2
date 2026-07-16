@@ -112,10 +112,10 @@ const NURTURE_SEQUENCES = [
         <p style="font-size: 16px; line-height: 24px; color: #1b1b1e; margin: 0 0 24px;">Te entiendo. Respondo las 3 más frecuentes:</p>
         
         <ol style="margin: 0 0 24px; padding-left: 24px; line-height: 2.5;">
-          <li style="font-size: 16px; line-height: 28px; color: #1b1b1e;"><strong>"¿Es suscripción mensual?"</strong> No. <strong>$99 una sola vez</strong>. Acceso de por vida.</li>
-          <li style="font-size: 16px; line-height: 28px; color: #1b1b1e;"><strong>"¿Y si no me gusta?"</strong> Tienes 7 días de garantía. Te devolvemos el dinero, sin preguntas.</li>
-          <li style="font-size: 16px; line-height: 28px; color: #1b1b1e;"><strong>"¿Tengo que aprender software nuevo?"</strong> No. Es la misma herramienta que ya usas, pero sin límites ni marca de agua.</li>
-        </ol>
+                  <li style="font-size: 16px; line-height: 28px; color: #1b1b1e;"><strong>"¿Es suscripción mensual?"</strong> No. <strong>$99 una sola vez</strong>. Acceso mientras exista el servicio.</li>
+                  <li style="font-size: 16px; line-height: 28px; color: #1b1b1e;"><strong>"¿Y si no me gusta?"</strong> Tienes 7 días de garantía. Te devolvemos el dinero, sin preguntas.</li>
+                  <li style="font-size: 16px; line-height: 28px; color: #1b1b1e;"><strong>"¿Tengo que aprender software nuevo?"</strong> No. Es la misma herramienta que ya usas, pero sin límites ni marca de agua.</li>
+                </ol>
 
         <hr style="margin: 32px 0; border: none; border-top: 1px solid #e4e1e6;">
         

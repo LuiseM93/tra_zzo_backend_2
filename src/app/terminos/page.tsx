@@ -15,7 +15,7 @@ export default function Terminos() {
 
         <div>
           <h2 className="font-headline-lg-mobile text-headline-lg-mobile text-on-background mb-2">2. Versión Pro y Pagos</h2>
-          <p>La versión Pro se adquiere mediante un pago único que te otorga acceso de por vida a las características premium de la herramienta (remover marca de agua, personalización). No hay suscripciones mensuales ni cargos ocultos posteriores.</p>
+          <p>La versión Pro se adquiere mediante un pago único que te otorga acceso a la versión Pro actual mientras exista el servicio (remover marca de agua, personalización). No hay suscripciones mensuales ni cargos ocultos posteriores.</p>
         </div>
 
         <div>

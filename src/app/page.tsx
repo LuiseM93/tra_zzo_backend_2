@@ -134,13 +134,13 @@ export default function Home() {
                               Versión Pro
                           </h3>
                           <div className="flex items-baseline gap-2">
-                              <span className="text-headline-xl font-bold text-primary">$99 MXN</span>
-                              <span className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Pago único de por vida</span>
-                          </div>
-                      </div>
-                      <div className="flex flex-col gap-2">
-                          <p className="font-body-md text-body-md text-on-background font-bold">Eleva tu imagen profesional eliminando marcas de agua y personalizando cada detalle.</p>
-                          <p className="font-body-sm text-body-sm text-on-surface-variant">Sin suscripciones mensuales. Paga una vez, úsalo para siempre.</p>
+                                                        <span className="text-headline-xl font-bold text-primary">$99 MXN</span>
+                                                        <span className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Pago único · Mientras exista el servicio</span>
+                                                    </div>
+                                                </div>
+                                                <div className="flex flex-col gap-2">
+                                                    <p className="font-body-md text-body-md text-on-background font-bold">Eleva tu imagen profesional eliminando marcas de agua y personalizando cada detalle.</p>
+                                                    <p className="font-body-sm text-body-sm text-on-surface-variant">Sin suscripciones mensuales. Paga una vez, accede mientras el servicio exista.</p>
                       </div>
                       <ul className="flex flex-col gap-2 font-body-sm text-body-sm text-on-background">
                           <li className="flex items-center gap-2"><span className="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span> Quitar marca de agua</li>
@@ -178,7 +178,7 @@ export default function Home() {
                     />
                     <FAQItem 
                       question="¿El pago de la versión PRO es mensual?" 
-                      answer="No, es un único pago de $99 MXN para siempre. Sin suscripciones ni cargos ocultos."
+                      answer="No, es un único pago de $99 MXN · Mientras exista el servicio. Sin suscripciones ni cargos ocultos."
                     />
                 </div>
             </section>

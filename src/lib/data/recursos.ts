@@ -40,7 +40,7 @@ export const recursos: Recurso[] = [
       <p>Es una excelente opción gratuita. No requiere registro y no pone marca de agua. Su debilidad es que es muy genérica: está hecha para cualquier tipo de negocio en cualquier país, por lo que no entiende las necesidades específicas de un plomero o electricista en México (como calcular por metro lineal o por destajo).</p>
       
       <h3>Trazzo Recibo</h3>
-      <p>Es un modelo Freemium. Generar recibos es 100% gratis pero incluye una pequeña marca de agua. Su mayor ventaja es la velocidad (diseñado para usarse en el celular mientras estás en la obra) y que por un único pago de $99 MXN de por vida, puedes poner el logotipo de tu negocio y dar una imagen nivel premium a tus clientes. Además, Trazzo se especializa en oficios mexicanos.</p>
+      <p>Es un modelo Freemium. Generar recibos es 100% gratis pero incluye una pequeña marca de agua. Su mayor ventaja es la velocidad (diseñado para usarse en el celular mientras estás en la obra) y que por un único pago de $99 MXN · Mientras exista el servicio, puedes poner el logotipo de tu negocio y dar una imagen nivel premium a tus clientes. Además, Trazzo se especializa en oficios mexicanos.</p>
     `
   },
   {
@@ -339,7 +339,7 @@ export const recursos: Recurso[] = [
       </ul>
       
       <h2>Tu recibo Trazzo Pro = Tu mejor borrador para la factura</h2>
-      <p>Cuando pagas $99 MXN de por vida en Trazzo y pones tu logo, tu recibo tiene: TU marca, TU RFC, TU domicilio, DESGLOSE pro (mano de obra / materiales), IVA separado (si aplica), TOTAL, CONDICIONES. Copias esos datos al portal SAT y facturas en 2 minutos. Eso es lo que pagan los $99: ahorrarte horas y verme profesional ante el cliente que SÍ pide factura.</p>
+      <p>Cuando pagas $99 MXN único · Mientras exista el servicio en Trazzo y pones tu logo, tu recibo tiene: TU marca, TU RFC, TU domicilio, DESGLOSE pro (mano de obra / materiales), IVA separado (si aplica), TOTAL, CONDICIONES. Copias esos datos al portal SAT y facturas en 2 minutos. Eso es lo que pagan los $99: ahorrarte horas y verme profesional ante el cliente que SÍ pide factura.</p>
     `
   },
 
@@ -365,7 +365,7 @@ export const recursos: Recurso[] = [
           </tr>
         </thead>
         <tbody>
-          <tr><td style="padding:0.5rem; border:1px solid #333;"><strong>Modelo de precio</strong></td><td style="padding:0.5rem; border:1px solid #333;"><strong>Freemium: Gratis (marca agua) / $99 MXN único de por vida (logo, sin marca agua)</strong></td><td style="padding:0.5rem; border:1px solid #333;">100% Gratis, sin marca agua, sin registro</td><td style="padding:0.5rem; border:1px solid #333;">Freemium: Gratis limitado / Pro $199-399/mes (suscripción)</td><td style="padding:0.5rem; border:1px solid #333;">Suscripción mensual (precio no público, ~$500-1,500/mes)</td></tr>
+          <tr><td style="padding:0.5rem; border:1px solid #333;"><strong>Modelo de precio</strong></td><td style="padding:0.5rem; border:1px solid #333;"><strong>Freemium: Gratis (marca agua) / $99 MXN único · Mientras exista el servicio (logo, sin marca agua)</strong></td><td style="padding:0.5rem; border:1px solid #333;">100% Gratis, sin marca agua, sin registro</td><td style="padding:0.5rem; border:1px solid #333;">Freemium: Gratis limitado / Pro $199-399/mes (suscripción)</td><td style="padding:0.5rem; border:1px solid #333;">Suscripción mensual (precio no público, ~$500-1,500/mes)</td></tr>
           <tr><td style="padding:0.5rem; border:1px solid #333;"><strong>Especialización oficios México</strong></td><td style="padding:0.5rem; border:1px solid #333;"><strong>ALTA: 17+ oficios con vocabulario, unidades, materiales, precios referencia MX</strong></td><td style="padding:0.5rem; border:1px solid #333;">BAJA: Genérico global. "Servicio 1, Servicio 2". No entiende "por metro lineal", "por punto", "por destajo".</td><td style="padding:0.5rem; border:1px solid #333;">MEDIA: Algunas plantillas MX, pero motor IA genérico.</td><td style="padding:0.5rem; border:1px solid #333;">ALTA: Enfoque construcción/plomería con precios materiales tiempo real.</td></tr>
           <tr><td style="padding:0.5rem; border:1px solid #333;"><strong>Velocidad en celular (obra)</strong></td><td style="padding:0.5rem; border:1px solid #333;"><strong>MUY RÁPIDA: PWA, offline-first, 3 taps = recibo listo</strong></td><td style="padding:0.5rem; border:1px solid #333;">LENTA: Web responsive, muchos campos, no guarda plantillas propias.</td><td style="padding:0.5rem; border:1px solid #333;">MEDIA: App nativa, pero flujo IA requiere conexión buena.</td><td style="padding:0.5rem; border:1px solid #333;">LENTA: Web pesada, diseñada para oficina no obra.</td></tr>
           <tr><td style="padding:0.5rem; border:1px solid #333;"><strong>WhatsApp integration</strong></td><td style="padding:0.5rem; border:1px solid #333;"><strong>NATIVA: Botón "Compartir por WhatsApp" → PDF + mensaje prellenado</strong></td><td style="padding:0.5rem; border:1px solid #333;">MANUAL: Descarga PDF → Abre WhatsApp → Adjunta → Escribe.</td><td style="padding:0.5rem; border:1px solid #333;">BOTÓN: Comparte link web (no PDF directo). Cliente ve web, no archivo.</td><td style="padding:0.5rem; border:1px solid #333;">MANUAL: Descarga → WhatsApp.</td></tr>
@@ -379,7 +379,7 @@ export const recursos: Recurso[] = [
       <h2>Veredicto honesto: ¿Cuál elegir?</h2>
       <ul>
         <li><strong>Elige Cotizadora Online SI:</strong> Haces 1-2 cotizaciones/mes, no te importa llenar campos manuales cada vez, no necesitas logo/profesionalismo visual, cero presupuesto.</li>
-        <li><strong>Elige Trazzo Recibo PRO ($99 de por vida) SI:</strong> Eres técnico/oficio en México, haces 3+ cotizaciones/mes, quieres logo propio, velocidad en obra, plantillas clonables, WhatsApp nativo, datos listos para facturar, entiendes vocabulario de TU oficio (metro lineal, punto, destajo, TR, kWp). <strong>ROI: 1 solo trabajo extra cerrado por imagen profesional = paga 100x los $99.</strong></li>
+        <li><strong>Elige Trazzo Recibo PRO ($99 único · Mientras exista el servicio) SI:</strong> Eres técnico/oficio en México, haces 3+ cotizaciones/mes, quieres logo propio, velocidad en obra, plantillas clonables, WhatsApp nativo, datos listos para facturar, entiendes vocabulario de TU oficio (metro lineal, punto, destajo, TR, kWp). <strong>ROI: 1 solo trabajo extra cerrado por imagen profesional = paga 100x los $99.</strong></li>
         <li><strong>Elige CotizadorPro SI:</strong> Te gusta la IA para redactar descripciones, aceptas suscripción mensual, no te importa que sea menos especializado en oficios MX.</li>
         <li><strong>Elige ObraMaestra SI:</strong> Eres constructor/empresa de ingeniería, necesitas precios de materiales EN TIEMPO REAL (acero, cemento, cobre), licitas obra pública/privada grande, tienes presupuesto de $500+/mes en software.</li>
       </ul>
@@ -411,7 +411,7 @@ export const recursos: Recurso[] = [
       </table>
       
       <h2>Conclusión: El "gratis" sale 5x más caro</h2>
-      <p>Trazzo Pro ($99 de por vida) te ahorra ~$23k vs "gratis" en 3 años solo en TIEMPO. Y eso sin contar los trabajos EXTRA que cierras por imagen profesional, seguimiento WhatsApp, plantillas listas.</p>
+      <p>Trazzo Pro ($99 único · Mientras exista el servicio) te ahorra ~$23k vs "gratis" en 3 años solo en TIEMPO. Y eso sin contar los trabajos EXTRA que cierras por imagen profesional, seguimiento WhatsApp, plantillas listas.</p>
       <p><strong>Tu punto de equilibrio:</strong> Si haces ≥3 cotizaciones/mes, Trazzo Pro se paga solo en el PRIMER MES (1 trabajo extra cerrado = ~$3,000+ ganancia neta vs $99 costo).</p>
     `
   }
