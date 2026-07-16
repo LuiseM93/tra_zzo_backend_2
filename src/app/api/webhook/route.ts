@@ -9,6 +9,11 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!
 
 export async function POST(req: Request) {
+  if (!webhookSecret) {
+    console.error('[Webhook] STRIPE_WEBHOOK_SECRET not configured')
+    return new NextResponse('Webhook secret not configured', { status: 500 })
+  }
+
   const body = await req.text()
   const signature = req.headers.get('Stripe-Signature') as string
 
@@ -17,6 +22,7 @@ export async function POST(req: Request) {
   try {
     event = stripe.webhooks.constructEvent(body, signature, webhookSecret)
   } catch (err: any) {
+    console.error('[Webhook] Signature verification failed:', err.message)
     return new NextResponse(`Webhook Error: ${err.message}`, { status: 400 })
   }
 
@@ -30,7 +36,7 @@ export async function POST(req: Request) {
       // Use service role key to bypass RLS for webhook updates
       const supabaseAdmin = createClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY! // Fallback to anon for now if admin missing
+        process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
       )
 
       if (!process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY === 'RELLENA_CON_TU_SERVICE_ROLE_KEY') {
@@ -45,6 +51,7 @@ export async function POST(req: Request) {
 
       if (error) {
         console.error('[Webhook] Supabase update error:', error)
+        return new NextResponse('Database update failed', { status: 500 })
       } else {
         console.log('[Webhook] Supabase update success:', data)
       }
