@@ -4,6 +4,8 @@ import { createClient } from '@supabase/supabase-js'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
+export const revalidate = 0
+export const fetchCache = 'force-no-store'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2026-06-24.dahlia',
@@ -12,13 +14,18 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!
 
 export async function POST(req: Request) {
-  if (!webhookSecret) {
-    console.error('[Webhook] STRIPE_WEBHOOK_SECRET not configured')
-    return new NextResponse('Webhook secret not configured', { status: 500 })
+  const signature = req.headers.get('Stripe-Signature')
+
+  if (!signature) {
+    return new NextResponse('No signature', { status: 401 })
   }
 
   const body = await req.text()
-  const signature = req.headers.get('Stripe-Signature') as string
+
+  if (!webhookSecret) {
+    console.error('[Webhook] STRIPE_WEBHOOK_SECRET not configured')
+    return new NextResponse('Server misconfigured', { status: 500 })
+  }
 
   let event: Stripe.Event
 
@@ -36,32 +43,25 @@ export async function POST(req: Request) {
 
     if (userId) {
       console.log(`[Webhook] Updating user ${userId} to pro plan`)
-      // Use service role key to bypass RLS for webhook updates
       const supabaseAdmin = createClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
       )
 
       if (!process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY === 'RELLENA_CON_TU_SERVICE_ROLE_KEY') {
-        console.warn('[Webhook] WARNING: SUPABASE_SERVICE_ROLE_KEY is not set or invalid. RLS might block this update.')
+        console.warn('[Webhook] WARNING: SUPABASE_SERVICE_ROLE_KEY is not set or invalid.')
       }
 
-      const { data, error } = await supabaseAdmin
+      const { error } = await supabaseAdmin
         .from('profiles')
         .update({ plan: 'pro' })
         .eq('id', userId)
-        .select()
 
       if (error) {
         console.error('[Webhook] Supabase update error:', error)
-        return new NextResponse('Database update failed', { status: 500 })
-      } else {
-        console.log('[Webhook] Supabase update success:', data)
       }
-    } else {
-      console.warn('[Webhook] No userId found in session metadata')
     }
   }
 
-  return new NextResponse('Webhook processed', { status: 200 })
+  return new NextResponse('OK', { status: 200 })
 }
