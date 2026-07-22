@@ -20,12 +20,17 @@ export default function Terminos() {
 
         <div>
           <h2 className="font-headline-lg-mobile text-headline-lg-mobile text-on-background mb-2">3. Limitación de Responsabilidad</h2>
-          <p>TRAZZO RECIBO se proporciona "tal cual". No nos hacemos responsables por pérdidas de datos (ya que los recibos se generan localmente y se pierden si no los exportas o si cierras el navegador accidentalmente). Tampoco somos responsables por el uso indebido o fraudulento de los recibos generados con esta herramienta.</p>
+          <p>TRAZZO RECIBO se proporciona &ldquo;tal cual&rdquo;. No nos hacemos responsables por pérdidas de datos (ya que los recibos se generan localmente y se pierden si no los exportas o si cierras el navegador accidentalmente). Tampoco somos responsables por el uso indebido o fraudulento de los recibos generados con esta herramienta.</p>
         </div>
 
         <div>
-          <h2 className="font-headline-lg-mobile text-headline-lg-mobile text-on-background mb-2">4. Propiedad Intelectual</h2>
-          <p>El código, diseño gráfico, marca "TRAZZO" y la infraestructura de la plataforma son propiedad exclusiva de TRAZZO RECIBO.</p>
+          <h2 className="font-headline-lg-mobile text-headline-lg-mobile text-on-background mb-2">4. Naturaleza de los Documentos Generados</h2>
+          <p><strong>Los recibos generados son comprobantes de pago privados (notas de remisi&oacute;n). No son Comprobantes Fiscales Digitales (CFDI), no est&aacute;n timbrados ante el SAT, y no tienen validez fiscal para deducci&oacute;n de impuestos. El usuario es completamente responsable de emitir su CFDI correspondiente si as&iacute; lo requiere la ley.</strong></p>
+        </div>
+
+        <div>
+          <h2 className="font-headline-lg-mobile text-headline-lg-mobile text-on-background mb-2">5. Propiedad Intelectual</h2>
+          <p>El c&oacute;digo, diseño gr&aacute;fico, marca &ldquo;TRAZZO&rdquo; y la infraestructura de la plataforma son propiedad exclusiva de TRAZZO RECIBO.</p>
         </div>
       </div>
     </div>
